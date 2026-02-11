@@ -1,0 +1,153 @@
+.site-header {
+  padding: 10px 28px ;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fafafa;
+  transform: translateY(-100%);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.site-header.visible {
+  transform: translateY(0);
+}
+.header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 14px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6f6f6f;
+}
+.menu-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: none;
+  display: flex;
+  align-items: center;
+}
+.icon {
+  width: 25px;
+  height: 22px;
+}
+
+.icon-close {
+  display: none;
+}
+
+body.menu-open .icon-menu {
+  display: none;
+}
+
+body.menu-open .icon-close {
+  display: block;
+  z-index: 1000;
+}
+/* ================= NAV OVERLAY ================= */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  background: #fafafa;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.nav-links.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-links a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #1b1b1b;
+}
+
+/* ================= DESKTOP ================= */
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    font-weight: 600;
+    font-size: 32px;
+    width: auto;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    gap: 24px;
+    opacity: 1;
+    pointer-events: auto;
+    background: none;
+    
+  }
+
+  .nav-links a {
+    color: #6f6f6f;
+    font-size: 0.95rem;
+  }
+}
+
+/* Footer spacing (if you add one later) */
+/* ================================
+   Site Footer (Minimal / Research)
+   ================================ */
+
+.site-footer {
+  margin-top: 6rem;
+  padding: 3.5rem 1.25rem 4rem;
+}
+
+.footer-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.footer-copy {
+  font-size: 0.95rem;
+  color: #777777;
+  margin-bottom: 1.75rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #777777;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+

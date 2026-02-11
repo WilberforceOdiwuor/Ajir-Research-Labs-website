@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "id": "epistemic-passivity",
+      "title": "Epistemic Passivity",
+      "type": "Research",
+      "date": "2026-02-01",
+      "summary": "A literature review examining epistemic agency, cognitive offloading, and the risks of epistemic passivity arising from increased reliance on generative AI.",
+      "path": "../Research/epistemic-passivity.html",
+      "image": "../assets/images/research/epistemic-passivity.jpg"
+    }
+  ]
+}

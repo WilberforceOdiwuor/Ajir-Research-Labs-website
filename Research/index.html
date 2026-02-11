@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research — Ajir Research Labs</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/content.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">Ajir Research Labs</h1>
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <img src="../assets/icons/list-bold.svg" alt="" class="icon icon-menu">
+        <img src="../assets/icons/x-bold.svg" alt="" class="icon icon-close">
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="/#top">Home</a></li>
+        <li><a href="/#research">Research</a></li>
+        <li><a href="/#join">Join us</a></li>
+      </ul>
+    </nav>
+    </div>
+  </header>
+
+
+<main class="content">
+
+  <h1 class="research-heading">Research</h1>
+
+  <!-- TAG FILTERS -->
+  <div class="tag-bar">
+    <button data-tag="all" class="active">All</button>
+    <button data-tag="Research">Research</button>
+    <button data-tag="Technical">Technical</button>
+    <button data-tag="Note">Note</button>
+  </div>
+
+  <!-- LIST -->
+  <section id="research-list"
+    class="research-list"
+    data-research-index
+    data-source="../data/indexes/research.json">
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <p class="footer-copy">
+      © 2026 Ajir Research Labs
+    </p>
+
+    <nav class="footer-links">
+      <a href="https://x.com/ajir_research" target="_blank" rel="noopener noreferrer">
+        Follow us on X @ajir_research
+      </a>
+
+      <a href="mailto:contact@ajirresearch.com">
+        contact@ajirresearch.com
+      </a>
+
+      <a href="../legals/terms.html">
+        Terms of service
+      </a>
+
+      <a href="../legals/privacy.html">
+        Privacy notice
+      </a>
+    </nav>
+
+  </div>
+ </footer>
+<script src="../js/core.js" defer></script>
+<script src="../js/behavior.js" defer></script>
+</body>
+</html>

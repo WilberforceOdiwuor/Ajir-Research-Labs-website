@@ -1,0 +1,410 @@
+/* =========================
+   Content wrapper
+   ========================= */
+
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 25px 128px;
+}
+
+/* =========================
+   Headings & intro
+   ========================= */
+
+.content .heading {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #6f6f6f;
+  text-align: center;
+}
+
+.content .hero {
+  margin-top: 0;
+}
+
+.content .tagline {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: #6a6a6a;
+  text-align: center;
+}
+
+.content section {
+  margin-top: 76px;
+}
+
+.content h2 {
+  font-size: 1.25rem;
+  font-family: "inter","Newsreader", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+.content p {
+  font-size: 1.01rem;
+  line-height: 1.65;
+  margin: 0 0 22px 0;
+  color: #1f1f1f;
+}
+
+
+/* =========================
+   Lists
+   ========================= */
+.content .value-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+  max-width: 640px;
+  display: grid;
+  gap: 18px;
+}
+
+.content .value-list li {
+  position: relative;
+  padding-left: 22px;
+  line-height: 1.6;
+}
+
+/* subtle vertical marker instead of bullet */
+
+/* key philosophical phrase */
+.content .value-list .key {
+  position: relative;
+  color: #000000;
+  font-weight: 600;
+  /*display: inline-block;*/
+}
+/* thin, short underline */
+.content .value-list .key::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  bottom: 0px;        /* vertical offset from text */
+  width: 95%;          /* makes it shorter than the text */
+  height: 1px;         /* very thin line */
+  background: #000000;
+  opacity: 0.2;        /* softer SaaS feel */
+}
+
+/* explanatory continuation */
+.content .value-list .rest {
+  color: #6f6f6f;
+}
+.content .connections {
+  list-style: none;
+  margin: 0 0 28px 0;
+  padding-left: 22px;
+}
+
+.content li {
+  font-size: 1.04rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #1f1f1f;
+}
+
+
+/* =========================
+   Inline elements
+   ========================= */
+
+.content em {
+  font-style: italic;
+}
+
+.content a {
+  color: #6f6f6f;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.content a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* =========================
+   Social / misc
+   ========================= */
+
+.content .social {
+  margin-top: 34px;
+}
+
+.content .research-heading {
+  font-size: 32px;
+  margin-bottom: 28px;
+}
+
+.content .tag-bar {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.content .tag-bar button {
+  color: #6f6f6f;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.content .tag-bar button.active {
+  color: #000;
+  font-weight: 600;
+}
+
+/* --- Research card --- */
+.content .research-item {
+  margin-bottom: 42px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #6f6f6f;
+}
+
+/* --- Image square cover --- */
+.content .research-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;     /* forces square */
+  object-fit: cover;       /* crop instead of stretch */
+  border-radius: 18px;
+  margin-bottom: 18px;
+  background: #111;        /* fallback while loading */
+}
+
+/* --- Meta line --- */
+.content .meta {
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+/* --- Title (clean research style) --- */
+.content .research-item h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.content .research-item h2 a {
+  /* dark headline */
+  text-decoration: none;   /* remove underline */
+}
+
+/* --- Summary spacing --- */
+.content .research-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  max-width: 520px;
+}
+/* =========================
+   Research index items
+   ========================= */
+
+.content .research-item {
+  padding: 2.25rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Meta row (type + date) */
+.content .research-meta {
+  font-size: 0.85rem;
+  color: #8a8a8a;
+  margin-bottom: 0.4rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Optional separator dot feel */
+.content .research-meta span:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.75rem;
+}
+.content .research-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.content .research-link:hover .research-title {
+  text-decoration: underline;
+}
+
+.content .research-link:hover {
+  cursor: pointer;
+}
+/* Summary */
+.content .research-summary {
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+.content .paper-title {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 40px;
+}
+.content .paper-abstract {
+  margin-bottom: 64px;
+}
+
+.content .paper-abstract h2 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.content .paper-abstract p {
+  color: #222;
+}
+
+.content .introduction h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 72px;
+  margin-bottom: 20px;
+}
+
+.content .body h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 48px;
+  margin-bottom: 12px;
+}
+
+.content .body h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+/* ----------------------------
+   Paragraphs
+----------------------------- */
+
+.content .body p {
+  margin-bottom: 22px;
+}
+
+/* ----------------------------
+   Emphasis & Quotes
+----------------------------- */
+
+.content blockquote {
+  margin: 32px 0;
+  padding-left: 20px;
+  border-left: 2px solid #ddd;
+  color: #444;
+  font-style: italic;
+}
+
+/* ----------------------------
+   Inline Citations
+----------------------------- */
+
+.content .citation {
+  color: #6f6f6f;              /* soft grey, not default blue */
+  text-decoration: none;
+  font-size: 0.7em;
+  position: relative;
+  vertical-align: super;
+  line-height: 0;    /* Prevents the superscript from adding extra height to the line */
+  transition: color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.8;
+}
+
+/* thin underline that appears on hover */
+.content .citation::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+/* hover interaction */
+.content .citation:hover {
+  color: #000000;              /* becomes epistemically “active” */
+  opacity: 1;
+}
+
+.content .citation:hover::after {
+  transform: scaleX(1);        /* smooth reveal underline */
+}
+
+/* ----------------------------
+   References
+----------------------------- */
+
+.paper-references {
+  margin-top: 96px;
+  padding-top: 48px;
+  border-top: 1px solid #eee;
+}
+
+.paper-references h2 {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+}
+
+.paper-references ol {
+  padding-left: 18px;
+}
+
+.paper-references li {
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  color: #333;
+}
+
+/* ----------------------------
+   Links
+----------------------------- */
+
+.content a {
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.content a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ----------------------------
+   Mobile Tuning
+----------------------------- */
+
+@media (max-width: 640px) {
+  .content {
+    padding: 72px 18px 120px;
+  }
+
+  .paper-title {
+    font-size: 1.9rem;
+  }
+
+  .content h2 {
+    font-size: 1.3rem;
+  }
+}
+
