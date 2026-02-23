@@ -8,6 +8,15 @@
       "summary": "A literature review examining epistemic agency, cognitive offloading, and the risks of epistemic passivity arising from increased reliance on generative AI.",
       "path": "../Research/epistemic-passivity.html",
       "image": "../assets/images/research/epistemic-passivity.jpg"
+    },
+    {
+        "id": "algorithmic-abdication",
+        "title": "Algorithmic Abdication and Intellectual Atrophy in the Era of Generative AI",
+        "date": "2026-02-22",
+        "type": "Research",
+        "summary": "A literature review examining algorithmic abdication, cognitive offloading, and intellectual atrophy in the age of generative AI.",
+        "path": "../Research/algorithmic-abdication.html",
+        "image": "../assets/images/research/algorithmic-abdication.jpg"
     }
-  ]
+    ]
 }
