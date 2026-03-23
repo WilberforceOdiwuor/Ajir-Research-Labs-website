@@ -17,6 +17,16 @@
         "summary": "A literature review examining algorithmic abdication, cognitive offloading, and intellectual atrophy in the age of generative AI.",
         "path": "../Research/algorithmic-abdication.html",
         "image": "../assets/images/research/algorithmic-abdication.jpg"
+    },
+    {
+        "id": "algorithmic-radicalization",
+        "title": "The Digital Funnel: Revealing the Techniques of Algorithmic Radicalization",
+        "type": "ote",
+        "date": "2026-03-24",
+        "summary": "An examination of how recommendation engines, engagement farming, and filter bubble entrenchment systematically steer users toward radical content — and how transparency and digital literacy can counter it.",
+        "path": "../Research/algorithmic-radicalization.html",
+        "image": "../assets/images/research/algorithmic-radicalization.jpg"
+        
     }
     ]
 }
