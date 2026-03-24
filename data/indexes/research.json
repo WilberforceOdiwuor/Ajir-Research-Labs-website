@@ -21,12 +21,23 @@
     {
         "id": "algorithmic-radicalization",
         "title": "The Digital Funnel: Revealing the Techniques of Algorithmic Radicalization",
-        "type": "ote",
+        "type": "Note",
         "date": "2026-03-24",
         "summary": "An examination of how recommendation engines, engagement farming, and filter bubble entrenchment systematically steer users toward radical content — and how transparency and digital literacy can counter it.",
         "path": "../Research/algorithmic-radicalization.html",
         "image": "../assets/images/research/algorithmic-radicalization.jpg"
         
+    },
+    {
+        "id": "intellectual-abdication-effect-of-ai",
+        "title": "Intellectual Abdication Effect of AI and Internet and Its Role in the Erosion of Intelligence and the Rise of Algorithmic Radicalization",
+        "type": "Research",
+        "date": "2026-03-24",
+        "summary": "A literature review examining how intellectual abdication — the transfer of mental work to AI systems — erodes human intelligence through the Distributed Atrophy Model and creates the ideal conditions for algorithmic radicalization.",
+        "path": "../Research/intellectual-abdication-effect-of-ai.html",
+        "image": "../assets/images/research/intellectual-abdication-effect-of-ai.jpg"
+        
     }
+
     ]
 }
