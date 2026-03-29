@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400;600;700&display=swap" rel="stylesheet">
   <title>Epistemic Passivity — Ajir Research Labs</title>
 
   <link rel="stylesheet" href="../css/base.css">
@@ -13,23 +17,32 @@
 
 <body>
 
+<!-- SHARED_HEADER_START -->
 <header class="site-header" id="site-header">
-    <div class="header-inner">
-      <h1 class="site-title">Ajir Research Labs</h1>
+  <div class="header-inner">
+    <h1 class="site-title">Ajir Research Labs</h1>
     <nav class="site-nav">
-      <button class="menu-toggle" aria-label="Toggle menu">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="site-nav-links"
+      >
         <img src="../assets/icons/list-bold.svg" alt="" class="icon icon-menu">
         <img src="../assets/icons/x-bold.svg" alt="" class="icon icon-close">
       </button>
 
-      <ul class="nav-links">
-        <li><a href="/#top">Home</a></li>
-        <li><a href="/Research/">Research</a></li>
-        <li><a href="/#join">Join us</a></li>
+      <ul class="nav-links" id="site-nav-links">
+        <li><a href="../#top">Home</a></li>
+        <li><a href="../Research/index.html">Research</a></li>
+        <li><a href="../#join">Join us</a></li>
       </ul>
     </nav>
-    </div>
-  </header>
+  </div>
+</header>
+
+<!-- SHARED_HEADER_END -->
 
 
 <main class="content">
@@ -230,7 +243,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
     <li id="ref-1">
       Armitage, R. C. (2023). ChatGPT: The threats to medical education.
       <em>Postgraduate Medical Journal</em>, 99(1176), 1130–1131.
-      <a href="https://doi.org/10.1093/postmj/qgad046" target="_blank">
+      <a href="https://doi.org/10.1093/postmj/qgad046" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1093/postmj/qgad046
       </a>
     </li>
@@ -238,7 +251,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
     <li id="ref-2">
       Bai, L., Liu, X., &amp; Su, J. (2023). ChatGPT: The cognitive effects on learning and memory.
       <em>Brain-X</em>, 1(3), e30.
-      <a href="https://doi.org/10.1002/brx2.30" target="_blank">
+      <a href="https://doi.org/10.1002/brx2.30" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1002/brx2.30
       </a>
     </li>
@@ -246,7 +259,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
     <li id="ref-3">
       Chavanayarn, S. (2023). Navigating ethical complexities through epistemological analysis of ChatGPT.
       <em>Bulletin of Science, Technology &amp; Society</em>, 43(3–4), 105–114.
-      <a href="https://doi.org/10.1177/02704676231216355" target="_blank">
+      <a href="https://doi.org/10.1177/02704676231216355" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1177/02704676231216355
       </a>
     </li>
@@ -257,7 +270,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
       Giese, W., &amp; Dos Santos, I. B. (2025).
       <em>Algorithms vs. autonomy: The risks of dependence on AI in the critical training of students</em>.
       In <em>Integrated Horizons: Dialogues Across Disciplines</em> (1st ed.). Seven Editora.
-      <a href="https://doi.org/10.56238/sevened2025.026-014" target="_blank">
+      <a href="https://doi.org/10.56238/sevened2025.026-014" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.56238/sevened2025.026-014
       </a>
     </li>
@@ -265,7 +278,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
     <li id="ref-5">
       Glickman, M., &amp; Sharot, T. (2024). AI-induced hyper-learning in humans.
       <em>Current Opinion in Psychology</em>, 60, 101900.
-      <a href="https://doi.org/10.1016/j.copsyc.2024.101900" target="_blank">
+      <a href="https://doi.org/10.1016/j.copsyc.2024.101900" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1016/j.copsyc.2024.101900
       </a>
     </li>
@@ -273,7 +286,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
     <li id="ref-6">
       Hashemi Tonekaboni, N., &amp; Soleymani, S. (2026).
       <em>Socratic method revisited: Human-AI dialogue for knowledge creation and internalization</em>.
-      <a href="https://hdl.handle.net/10125/112020" target="_blank">
+      <a href="https://hdl.handle.net/10125/112020" target="_blank" rel="noopener noreferrer">
         https://hdl.handle.net/10125/112020
       </a>
     </li>
@@ -281,7 +294,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
     <li id="ref-7">
       Kidd, C., &amp; Birhane, A. (2023). How AI can distort human beliefs.
       <em>Science</em>, 380(6651), 1222–1223.
-      <a href="https://doi.org/10.1126/science.adi0248" target="_blank">
+      <a href="https://doi.org/10.1126/science.adi0248" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1126/science.adi0248
       </a>
     </li>
@@ -290,7 +303,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
       Lampou, R. (2023). The integration of artificial intelligence in education:
       Opportunities and challenges.
       <em>Review of Artificial Intelligence in Education</em>, 4(00), e015.
-      <a href="https://doi.org/10.37497/rev.artif.intell.educ.v4i00.15" target="_blank">
+      <a href="https://doi.org/10.37497/rev.artif.intell.educ.v4i00.15" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.37497/rev.artif.intell.educ.v4i00.15
       </a>
     </li>
@@ -298,8 +311,8 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
     <li id="ref-9">
       Sosa, E. (2013). Epistemic agency.
       <em>The Journal of Philosophy</em>, 110(11), 585–605.
-      <a href="http://www.jstor.org/stable/43820803" target="_blank">
-        http://www.jstor.org/stable/43820803
+      <a href="https://www.jstor.org/stable/43820803" target="_blank" rel="noopener noreferrer">
+        https://www.jstor.org/stable/43820803
       </a>
     </li>
 
@@ -308,7 +321,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
       &amp; Rintel, S. (2023).
       <em>The metacognitive demands and opportunities of generative AI</em>.
       arXiv:2312.10893.
-      <a href="https://doi.org/10.48550/arxiv.2312.10893" target="_blank">
+      <a href="https://doi.org/10.48550/arxiv.2312.10893" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.48550/arxiv.2312.10893
       </a>
     </li>
@@ -317,14 +330,14 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
       Ye, A., Moore, J., Novick, R., &amp; Zhang, A. X. (2024).
       <em>Language models as critical thinking tools: A case study of philosophers</em>.
       arXiv:2404.04516.
-      <a href="https://doi.org/10.48550/arxiv.2404.04516" target="_blank">
+      <a href="https://doi.org/10.48550/arxiv.2404.04516" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.48550/arxiv.2404.04516
       </a>
     </li>
 
     <li id="ref-12">
       Yeralan, S., &amp; Lee, L. A. (2023). Generative AI: Challenges to higher education.
-      <a href="https://doi.org/10.37868/sei.v5i2.id196" target="_blank">
+      <a href="https://doi.org/10.37868/sei.v5i2.id196" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.37868/sei.v5i2.id196
       </a>
     </li>
@@ -333,7 +346,7 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
       Zhai, C., Wibowo, S., &amp; Li, L. D. (2024). The effects of over-reliance on AI dialogue
       systems on students’ cognitive abilities: A systematic review.
       <em>Smart Learning Environments</em>, 11(1).
-      <a href="https://doi.org/10.1186/s40561-024-00316-7" target="_blank">
+      <a href="https://doi.org/10.1186/s40561-024-00316-7" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1186/s40561-024-00316-7
       </a>
     </li>
@@ -342,9 +355,9 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
 
 </main>
 
+<!-- SHARED_FOOTER_START -->
 <footer class="site-footer">
   <div class="footer-inner">
-
     <p class="footer-copy">
       © 2026 Ajir Research Labs
     </p>
@@ -362,13 +375,18 @@ This is dangerous because GenAI often exhibits <em>conceptual and grounding flaw
         Terms of service
       </a>
 
-      <a href="/legals/privacy.html">
+      <a href="../legals/privacy.html">
         Privacy notice
       </a>
-    </nav>
 
+      <a href="../legals/AI-policy.html">
+        AI policy
+      </a>
+    </nav>
   </div>
- </footer>
+</footer>
+
+<!-- SHARED_FOOTER_END -->
 <script src="../js/core.js" defer></script>
 <script src="../js/behavior.js" defer></script>
 

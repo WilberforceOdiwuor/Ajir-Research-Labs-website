@@ -4,29 +4,42 @@
   <meta charset="UTF-8" />
   <title>Terms of Service – Ajir Research Labs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/content.css">
   <link rel="stylesheet" href="../css/theme.css">
 </head>
 <body>
-    <header class="site-header" id="site-header">
-    <div class="header-inner">
-      <h1 class="site-title">Ajir Research Labs</h1>
+    <!-- SHARED_HEADER_START -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <h1 class="site-title">Ajir Research Labs</h1>
     <nav class="site-nav">
-      <button class="menu-toggle" aria-label="Toggle menu">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="site-nav-links"
+      >
         <img src="../assets/icons/list-bold.svg" alt="" class="icon icon-menu">
         <img src="../assets/icons/x-bold.svg" alt="" class="icon icon-close">
       </button>
 
-      <ul class="nav-links">
+      <ul class="nav-links" id="site-nav-links">
         <li><a href="../#top">Home</a></li>
-        <li><a href="/Research/">Research</a></li>
-        <li><a href="/#join">Join us</a></li>
+        <li><a href="../Research/index.html">Research</a></li>
+        <li><a href="../#join">Join us</a></li>
       </ul>
     </nav>
-    </div>
-  </header>
+  </div>
+</header>
+
+<!-- SHARED_HEADER_END -->
   <main class="content">
 <h1>Terms of Service</h1>
 <p><strong>Effective Date:</strong> 08/02/2026</p>
@@ -183,9 +196,9 @@ For legal inquiries, contact:
 </p>
     
   </main>
+<!-- SHARED_FOOTER_START -->
 <footer class="site-footer">
   <div class="footer-inner">
-
     <p class="footer-copy">
       © 2026 Ajir Research Labs
     </p>
@@ -199,17 +212,22 @@ For legal inquiries, contact:
         contact@ajirresearch.com
       </a>
 
-      <a href="#">
+      <a href="../legals/terms.html">
         Terms of service
       </a>
 
       <a href="../legals/privacy.html">
         Privacy notice
       </a>
-    </nav>
 
+      <a href="../legals/AI-policy.html">
+        AI policy
+      </a>
+    </nav>
   </div>
 </footer>
+
+<!-- SHARED_FOOTER_END -->
   <script src="../js/core.js" defer></script>
   <script src="../js/behavior.js" defer></script>
 </body>

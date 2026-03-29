@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400;600;700&display=swap" rel="stylesheet">
   <title>Algorithmic Abdication — Ajir Research Labs</title>
 
   <link rel="stylesheet" href="../css/base.css">
@@ -13,23 +17,32 @@
 
 <body>
 
+<!-- SHARED_HEADER_START -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <h1 class="site-title">Ajir Research Labs</h1>
     <nav class="site-nav">
-      <button class="menu-toggle" aria-label="Toggle menu">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="site-nav-links"
+      >
         <img src="../assets/icons/list-bold.svg" alt="" class="icon icon-menu">
         <img src="../assets/icons/x-bold.svg" alt="" class="icon icon-close">
       </button>
 
-      <ul class="nav-links">
-        <li><a href="/#top">Home</a></li>
-        <li><a href="/Research/">Research</a></li>
-        <li><a href="/#join">Join us</a></li>
+      <ul class="nav-links" id="site-nav-links">
+        <li><a href="../#top">Home</a></li>
+        <li><a href="../Research/index.html">Research</a></li>
+        <li><a href="../#join">Join us</a></li>
       </ul>
     </nav>
   </div>
 </header>
+
+<!-- SHARED_HEADER_END -->
 
 <main class="content">
 
@@ -231,85 +244,85 @@ diversity rather than becoming its substitute
 
 <li id="ref-1">Abdelghani, R., Sauzéon, H., &amp; Oudeyer, P.-Y. (2023). Generative AI in the Classroom: <em>Can 
   Students Remain Active Learners?</em>(Version 2). arXiv.
-  <a href="https://doi.org/10.48550/ARXIV.2310.03192" target="_blank">
+  <a href="https://doi.org/10.48550/ARXIV.2310.03192" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.48550/ARXIV.2310.03192
       </a>
 </li>
 <li id="ref-2">Al-Abyadh, M., Kalista Noor, L., &amp; Fawzi, A. (2025). Between Cognitive Augmentation and 
 Atrophy: AI’s Role in Reshaping Human Intelligence. <em>Interciencia</em>.
   
-  <a href="https://doi.org/10.59671/uk4mF" target="_blank">
+  <a href="https://doi.org/10.59671/uk4mF" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.59671/uk4mF
       </a>
 </li>
 <li id="ref-3">Ferrara, E. (2024). <em>What Are The Risks of Living in a GenAI Synthetic Reality?</em> The 
 Generative AI Paradox (Version 1). arXiv.
-  <a href="https://doi.org/10.48550/ARXIV.2411.08250" target="_blank">
+  <a href="https://doi.org/10.48550/ARXIV.2411.08250" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.48550/ARXIV.2411.08250
       </a>
 </li>
 <li id="ref-4">Georgiou, G. P. (2025). <em>ChatGPT produces more “lazy” thinkers: Evidence of cognitive 
 engagement decline (Version 1)</em>. arXiv
-  <a href="https://doi.org/10.48550/ARXIV.2507.00181" target="_blank">
+  <a href="https://doi.org/10.48550/ARXIV.2507.00181" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.48550/ARXIV.2507.00181
       </a>
 </li>
 <li id="ref-5">Gerlich, M. (2025). <em>AI Tools in Society: Impacts on Cognitive Offloading and the Future of 
 Critical Thinking. Societies, 15(1), 6.</em>
-  <a href="https://doi.org/10.3390/soc15010006" target="_blank">
+  <a href="https://doi.org/10.3390/soc15010006" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.3390/soc15010006
       </a>
 </li>
 <li id="ref-6">Hamilton, K. A., & Benjamin, A. S. (2019). <em>The human-machine extended organism: New 
 roles and responsibilities of human cognition in a digital ecology. Journal of Applied 
 Research in Memory and Cognition, 8(1), 40–45.</em>
-  <a href="https://doi.org/10.1016/j.jarmac.2019.01.001" target="_blank">
+  <a href="https://doi.org/10.1016/j.jarmac.2019.01.001" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1016/j.jarmac.2019.01.001
       </a>
 </li>
 <li id="ref-7">Hunter, R., Moulange, R., Bernardi, J., &amp; Stein, M. (2024). <em>Monitoring Human Dependence 
 On AI Systems With Reliance Drills (Version 5)</em>. arXiv.
-  <a href="https://doi.org/10.48550/ARXIV.2409.14055" target="_blank">
+  <a href="https://doi.org/10.48550/ARXIV.2409.14055" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.48550/ARXIV.2409.14055
       </a>
 </li>
 <li id="ref-8">Jadhav, A. (2025). <em>Distributed Atrophy: How AI Shapes and Shrinks Our Cognitive Habits. 
 Open Science Framework.</em>
-  <a href="https://doi.org/10.31219/osf.io/hzuw7_v1" target="_blank">
+  <a href="https://doi.org/10.31219/osf.io/hzuw7_v1" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.31219/osf.io/hzuw7_v1
       </a>
 </li>
 <li id="ref-9">Jo, A. (2024). <em>The Intricate Dance of Knowledge, Innovation, and AI: Navigating the 
 Human Element</em>. Journal of Knowledge Learning and Science Technology ISSN: 2959-6386 
 (Online), 2(3), 392–400
-  <a href="https://doi.org/10.60087/jklst.vol2.n3.p400" target="_blank">
+  <a href="https://doi.org/10.60087/jklst.vol2.n3.p400" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.60087/jklst.vol2.n3.p400
       </a>
 </li>
 <li id="ref-10">Minnich, E. (2014). <em>The evil of banality: Arendt revisited. Arts and Humanities in Higher 
 Education, 13(1–2), 158–179</em>.
-  <a href="https://doi.org/10.1177/1474022213513543" target="_blank">
+  <a href="https://doi.org/10.1177/1474022213513543" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1177/1474022213513543
       </a>
 </li>
 <li id="ref-11">Peterson, A. J. (2024). <em>AI and the Problem of Knowledge Collapse</em>.
-  <a href="https://doi.org/10.48550/ARXIV.2404.03502" target="_blank">
+  <a href="https://doi.org/10.48550/ARXIV.2404.03502" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.48550/ARXIV.2404.03502
       </a>
 </li>
 <li id="ref-12">Trivedi, A. (2013). A Study of Literature Review on Individual Accountability. SSRN 
 Electronic Journal.
-  <a href="https://doi.org/10.2139/ssrn.2314551" target="_blank">
+  <a href="https://doi.org/10.2139/ssrn.2314551" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.2139/ssrn.2314551
       </a></li>
 <li id="ref-13">Yavich, R. (2025). <em>Will the Use of AI Undermine Students Independent Thinking?</em> 
 Education Sciences, 15(6), 669.
-  <a href="https://doi.org/10.3390/educsci15060669" target="_blank">
+  <a href="https://doi.org/10.3390/educsci15060669" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.3390/educsci15060669
       </a>
 </li>
 <li id="ref-14">Zachary, G. P. (2015). <em>Let’s shape AI before AI shapes us</em>. IEEE Spectrum, 52(7), 8–8.
-  <a href="https://doi.org/10.1109/MSPEC.2015.7131675" target="_blank">
+  <a href="https://doi.org/10.1109/MSPEC.2015.7131675" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1109/MSPEC.2015.7131675
 </a>
 </li>
@@ -317,7 +330,7 @@ Education Sciences, 15(6), 669.
 Intelligence</em>. In F. Sun, H. Liu, & D. Hu (Eds.), <em>Cognitive Systems and Signal Processing</em>
 (Vol. 1005, pp. 385–392). Springer Singapore.
   <a href="https://doi.org/10.1007/978-981-13-7983-
-3_34" target="_blank">
+3_34" target="_blank" rel="noopener noreferrer">
         https://doi.org/10.1007/978-981-13-7983-
 3_34
 </a>
@@ -328,29 +341,38 @@ Intelligence</em>. In F. Sun, H. Liu, & D. Hu (Eds.), <em>Cognitive Systems and 
 
 </main>
 
+<!-- SHARED_FOOTER_START -->
 <footer class="site-footer">
-<div class="footer-inner">
-<p class="footer-copy">© 2026 Ajir Research Labs</p>
+  <div class="footer-inner">
+    <p class="footer-copy">
+      © 2026 Ajir Research Labs
+    </p>
 
-<nav class="footer-links">
-<a href="https://x.com/ajir_research" target="_blank" rel="noopener noreferrer">
-Follow us on X @ajir_research
-</a>
+    <nav class="footer-links">
+      <a href="https://x.com/ajir_research" target="_blank" rel="noopener noreferrer">
+        Follow us on X @ajir_research
+      </a>
 
-<a href="mailto:contact@ajirresearch.com">
-contact@ajirresearch.com
-</a>
+      <a href="mailto:contact@ajirresearch.com">
+        contact@ajirresearch.com
+      </a>
 
-<a href="../legals/terms.html">
-Terms of service
-</a>
+      <a href="../legals/terms.html">
+        Terms of service
+      </a>
 
-<a href="/legals/privacy.html">
-Privacy notice
-</a>
-</nav>
-</div>
+      <a href="../legals/privacy.html">
+        Privacy notice
+      </a>
+
+      <a href="../legals/AI-policy.html">
+        AI policy
+      </a>
+    </nav>
+  </div>
 </footer>
+
+<!-- SHARED_FOOTER_END -->
 
 <script src="../js/core.js" defer></script>
 <script src="../js/behavior.js" defer></script>

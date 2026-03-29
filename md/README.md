@@ -37,6 +37,22 @@ will be added incrementally as development progresses.
 
 There is no public product release at this time.
 
+## Shared Chrome Workflow
+
+The site header and footer are maintained in:
+- `templates/header.html`
+- `templates/footer.html`
+
+After editing either template, regenerate the embedded chrome blocks in the
+static pages with:
+
+```bash
+python3 scripts/render_shared_chrome.py
+```
+
+This updates the homepage, research pages, and legal pages listed in
+`scripts/render_shared_chrome.py` so shared navigation stays consistent.
+
 ## Contact
 
 X: https://x.com/ajir_research

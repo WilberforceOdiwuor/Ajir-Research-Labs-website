@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400;600;700&display=swap" rel="stylesheet">
   <title>Intellectual Abdication Effect of AI — Ajir Research Labs</title>
 
   <link rel="stylesheet" href="../css/base.css">
@@ -13,23 +17,32 @@
 
 <body>
 
+<!-- SHARED_HEADER_START -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <h1 class="site-title">Ajir Research Labs</h1>
     <nav class="site-nav">
-      <button class="menu-toggle" aria-label="Toggle menu">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="site-nav-links"
+      >
         <img src="../assets/icons/list-bold.svg" alt="" class="icon icon-menu">
         <img src="../assets/icons/x-bold.svg" alt="" class="icon icon-close">
       </button>
 
-      <ul class="nav-links">
-        <li><a href="/#top">Home</a></li>
-        <li><a href="/Research/">Research</a></li>
-        <li><a href="/#join">Join us</a></li>
+      <ul class="nav-links" id="site-nav-links">
+        <li><a href="../#top">Home</a></li>
+        <li><a href="../Research/index.html">Research</a></li>
+        <li><a href="../#join">Join us</a></li>
       </ul>
     </nav>
   </div>
 </header>
+
+<!-- SHARED_HEADER_END -->
 
 <main class="content">
 
@@ -194,82 +207,82 @@ Nevertheless, significant research gaps remain. The long-term impact of LLM use 
 
   <li id="ref-alrhmoun">
     Alrhmoun, A., Winter, C., &amp; Kertész, J. (2024). Automating Terror: The Role and Impact of Telegram Bots in the Islamic State's Online Ecosystem. <em>Terrorism and Political Violence, 36</em>(4), 409–424.
-    <a href="https://doi.org/10.1080/09546553.2023.2169141" target="_blank">https://doi.org/10.1080/09546553.2023.2169141</a>
+    <a href="https://doi.org/10.1080/09546553.2023.2169141" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/09546553.2023.2169141</a>
   </li>
 
   <li id="ref-burke">
     Burke, L. (2022). <em>Accelerated Epistemic Harm: Understanding the Role of Social Media Engagement Algorithms in Online Radicalization</em> [Master of Arts, Carleton University].
-    <a href="https://doi.org/10.22215/etd/2022-14961" target="_blank">https://doi.org/10.22215/etd/2022-14961</a>
+    <a href="https://doi.org/10.22215/etd/2022-14961" target="_blank" rel="noopener noreferrer">https://doi.org/10.22215/etd/2022-14961</a>
   </li>
 
   <li id="ref-burton">
     Burton, J. (2023). Algorithmic extremism? The securitization of artificial intelligence (AI) and its impact on radicalism, polarization and political violence. <em>Technology in Society, 75</em>, 102262.
-    <a href="https://doi.org/10.1016/j.techsoc.2023.102262" target="_blank">https://doi.org/10.1016/j.techsoc.2023.102262</a>
+    <a href="https://doi.org/10.1016/j.techsoc.2023.102262" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.techsoc.2023.102262</a>
   </li>
 
   <li id="ref-carabantes">
     Carabantes, M. (2020). Black-box artificial intelligence: An epistemological and critical analysis. <em>AI &amp; Society, 35</em>(2), 309–317.
-    <a href="https://doi.org/10.1007/s00146-019-00888-w" target="_blank">https://doi.org/10.1007/s00146-019-00888-w</a>
+    <a href="https://doi.org/10.1007/s00146-019-00888-w" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s00146-019-00888-w</a>
   </li>
 
   <li id="ref-thaker">
     Faculty of Law, GLS University, Ahmedabad, &amp; Thaker, V. (2025). The Dual Impact of Artificial Intelligence on Human Cognition: A Comprehensive Review. <em>Journal of International Commercial Law and Technology, 6</em>(1), 34–35.
-    <a href="https://doi.org/10.61336/Jiclt/25-01-04" target="_blank">https://doi.org/10.61336/Jiclt/25-01-04</a>
+    <a href="https://doi.org/10.61336/Jiclt/25-01-04" target="_blank" rel="noopener noreferrer">https://doi.org/10.61336/Jiclt/25-01-04</a>
   </li>
 
   <li id="ref-firth">
     Firth, J. A., Torous, J., &amp; Firth, J. (2020). Exploring the Impact of Internet Use on Memory and Attention Processes. <em>International Journal of Environmental Research and Public Health, 17</em>(24), 9481.
-    <a href="https://doi.org/10.3390/ijerph17249481" target="_blank">https://doi.org/10.3390/ijerph17249481</a>
+    <a href="https://doi.org/10.3390/ijerph17249481" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/ijerph17249481</a>
   </li>
 
   <li id="ref-georgiou">
     Georgiou, G. P. (2025). <em>ChatGPT produces more "lazy" thinkers: Evidence of cognitive engagement decline</em> (Version 1). arXiv.
-    <a href="https://doi.org/10.48550/ARXIV.2507.00181" target="_blank">https://doi.org/10.48550/ARXIV.2507.00181</a>
+    <a href="https://doi.org/10.48550/ARXIV.2507.00181" target="_blank" rel="noopener noreferrer">https://doi.org/10.48550/ARXIV.2507.00181</a>
   </li>
 
   <li id="ref-gerlich">
     Gerlich, M. (2025). AI Tools in Society: Impacts on Cognitive Offloading and the Future of Critical Thinking. <em>Societies, 15</em>(1), 6.
-    <a href="https://doi.org/10.3390/soc15010006" target="_blank">https://doi.org/10.3390/soc15010006</a>
+    <a href="https://doi.org/10.3390/soc15010006" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/soc15010006</a>
   </li>
 
   <li id="ref-hyland">
     Hyland, T. (2023). Artificial Intelligence (AI) Developments and Their Implications for Humankind: A Critical Analysis of Contemporary Trends and Perspectives. <em>Current Journal of Applied Science and Technology, 42</em>(21), 12–26.
-    <a href="https://doi.org/10.9734/cjast/2023/v42i214154" target="_blank">https://doi.org/10.9734/cjast/2023/v42i214154</a>
+    <a href="https://doi.org/10.9734/cjast/2023/v42i214154" target="_blank" rel="noopener noreferrer">https://doi.org/10.9734/cjast/2023/v42i214154</a>
   </li>
 
   <li id="ref-jadhav">
     Jadhav, A. (2025). Distributed Atrophy: How AI Shapes and Shrinks Our Cognitive Habits. <em>Open Science Framework.</em>
-    <a href="https://doi.org/10.31219/osf.io/hzuw7_v1" target="_blank">https://doi.org/10.31219/osf.io/hzuw7_v1</a>
+    <a href="https://doi.org/10.31219/osf.io/hzuw7_v1" target="_blank" rel="noopener noreferrer">https://doi.org/10.31219/osf.io/hzuw7_v1</a>
   </li>
 
   <li id="ref-kidd">
     Kidd, C., &amp; Birhane, A. (2023). How AI can distort human beliefs. <em>Science, 380</em>(6651), 1222–1223.
-    <a href="https://doi.org/10.1126/science.adi0248" target="_blank">https://doi.org/10.1126/science.adi0248</a>
+    <a href="https://doi.org/10.1126/science.adi0248" target="_blank" rel="noopener noreferrer">https://doi.org/10.1126/science.adi0248</a>
   </li>
 
   <li id="ref-mccurdy">
     McCurdy, E. (2021). Radicalizing Online: An overview of the role the internet plays in radicalization into extremism. <em>MacEwan University Student eJournal, 5</em>(1).
-    <a href="https://doi.org/10.31542/muse.v5i1.2008" target="_blank">https://doi.org/10.31542/muse.v5i1.2008</a>
+    <a href="https://doi.org/10.31542/muse.v5i1.2008" target="_blank" rel="noopener noreferrer">https://doi.org/10.31542/muse.v5i1.2008</a>
   </li>
 
   <li id="ref-latif">
     Muhammad Asad Latif. (2024). Terrorism New Wave: The Same Style but New Ways in the Context of Online Radicalization. <em>HISTORICAL: Journal of History and Social Sciences, 3</em>(2), 169–180.
-    <a href="https://doi.org/10.58355/historical.v3i2.109" target="_blank">https://doi.org/10.58355/historical.v3i2.109</a>
+    <a href="https://doi.org/10.58355/historical.v3i2.109" target="_blank" rel="noopener noreferrer">https://doi.org/10.58355/historical.v3i2.109</a>
   </li>
 
   <li id="ref-sencer">
     Sencer, Y., &amp; Laura, A. L. (2023). Generative AI: Challenges to Academic Quality. <em>Herald of the Kazakh-British Technical University, 20</em>(3), 17–25.
-    <a href="https://doi.org/10.55452/1998-6688-2023-20-3-17-25" target="_blank">https://doi.org/10.55452/1998-6688-2023-20-3-17-25</a>
+    <a href="https://doi.org/10.55452/1998-6688-2023-20-3-17-25" target="_blank" rel="noopener noreferrer">https://doi.org/10.55452/1998-6688-2023-20-3-17-25</a>
   </li>
 
   <li id="ref-velarde">
     Velarde, G. (2019). Artificial Intelligence and its Impact on the Fourth Industrial Revolution: A Review. <em>International Journal of Artificial Intelligence &amp; Applications, 10</em>(6), 41–48.
-    <a href="https://doi.org/10.5121/ijaia.2019.10604" target="_blank">https://doi.org/10.5121/ijaia.2019.10604</a>
+    <a href="https://doi.org/10.5121/ijaia.2019.10604" target="_blank" rel="noopener noreferrer">https://doi.org/10.5121/ijaia.2019.10604</a>
   </li>
 
   <li id="ref-zhang">
     Zhang, Y., &amp; Nauman, U. (2019). Intelligence's Dilemma: AI Algorithms May Cause Anti-Intelligence. In F. Sun, H. Liu, &amp; D. Hu (Eds.), <em>Cognitive Systems and Signal Processing</em> (Vol. 1005, pp. 385–392). Springer Singapore.
-    <a href="https://doi.org/10.1007/978-981-13-7983-3_34" target="_blank">https://doi.org/10.1007/978-981-13-7983-3_34</a>
+    <a href="https://doi.org/10.1007/978-981-13-7983-3_34" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/978-981-13-7983-3_34</a>
   </li>
 
 </ol>
@@ -277,9 +290,12 @@ Nevertheless, significant research gaps remain. The long-term impact of LLM use 
 
 </main>
 
+<!-- SHARED_FOOTER_START -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="footer-copy">© 2026 Ajir Research Labs</p>
+    <p class="footer-copy">
+      © 2026 Ajir Research Labs
+    </p>
 
     <nav class="footer-links">
       <a href="https://x.com/ajir_research" target="_blank" rel="noopener noreferrer">
@@ -294,12 +310,18 @@ Nevertheless, significant research gaps remain. The long-term impact of LLM use 
         Terms of service
       </a>
 
-      <a href="/legals/privacy.html">
+      <a href="../legals/privacy.html">
         Privacy notice
+      </a>
+
+      <a href="../legals/AI-policy.html">
+        AI policy
       </a>
     </nav>
   </div>
 </footer>
+
+<!-- SHARED_FOOTER_END -->
 
 <script src="../js/core.js" defer></script>
 <script src="../js/behavior.js" defer></script>

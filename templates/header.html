@@ -1,17 +1,23 @@
 <header class="site-header" id="site-header">
-    <div class="header-inner">
-      <h1 class="site-title">Ajir Research Labs</h1>
+  <div class="header-inner">
+    <h1 class="site-title">Ajir Research Labs</h1>
     <nav class="site-nav">
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <img src="assets/list-bold.svg" alt="" class="icon icon-menu">
-        <img src="assets/x-bold.svg" alt="" class="icon icon-close">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="site-nav-links"
+      >
+        <img src="{{root}}/assets/icons/list-bold.svg" alt="" class="icon icon-menu">
+        <img src="{{root}}/assets/icons/x-bold.svg" alt="" class="icon icon-close">
       </button>
 
-      <ul class="nav-links">
-        <li><a href="/#top">Home</a></li>
-        <li><a href="/Research/">Research</a></li>
-        <li><a href="/#join">Join us</a></li>
+      <ul class="nav-links" id="site-nav-links">
+        <li><a href="{{root}}/#top">Home</a></li>
+        <li><a href="{{root}}/Research/index.html">Research</a></li>
+        <li><a href="{{root}}/#join">Join us</a></li>
       </ul>
     </nav>
-    </div>
-  </header>
+  </div>
+</header>
