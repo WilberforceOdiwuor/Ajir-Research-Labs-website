@@ -133,42 +133,7 @@
 
 .content .social {
   margin-top: 34px;
-  text-align: center;
-}
-
-.content .social-copy {
-  margin-bottom: 14px;
-}
-
-.content .social-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-
-.content .inline-icon-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 999px;
-  vertical-align: middle;
-  background: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-}
-
-.content .inline-icon-link:hover {
-  border-color: rgba(0, 0, 0, 0.22);
-  text-decoration: none;
-}
-
-.content .inline-icon-link img {
-  width: 16px;
-  height: 16px;
-  display: block;
+  text-align: left;
 }
 
 .content .eyebrow {
@@ -287,6 +252,46 @@
 
 .content .author-card .profile-role {
   margin-bottom: 18px;
+}
+
+.team-content {
+  max-width: 1080px;
+}
+
+.team-content .hero {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .team-grid .profile-card:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .team-grid .profile-card:first-child .profile-bio {
+    max-width: 780px;
+  }
+}
+
+@media (min-width: 1180px) {
+  .team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .team-grid .profile-card:first-child {
+    grid-column: auto;
+  }
 }
 
 .content .research-heading {
