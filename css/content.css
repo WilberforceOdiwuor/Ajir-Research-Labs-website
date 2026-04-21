@@ -133,6 +133,18 @@
 
 .content .social {
   margin-top: 34px;
+  text-align: center;
+}
+
+.content .social-copy {
+  margin-bottom: 14px;
+}
+
+.content .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }
 
 .content .inline-icon-link {
@@ -141,7 +153,6 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  margin-left: 8px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 999px;
   vertical-align: middle;
