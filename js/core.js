@@ -1,24 +1,12 @@
 // core.js
 
 function initHeaderAndMenu() {
-  const header = document.getElementById('site-header');
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav-links');
   const links = document.querySelectorAll('.nav-links a');
   const body = document.body;
 
-  if (!header || !toggle || !nav) return;
-
-  function updateHeaderBrand() {
-    if (window.scrollY > 8) {
-      header.classList.add('visible');
-    } else {
-      header.classList.remove('visible');
-    }
-  }
-
-  updateHeaderBrand();
-  window.addEventListener('scroll', updateHeaderBrand);
+  if (!toggle || !nav) return;
 
   function closeMenu() {
     nav.classList.remove('open');

@@ -18,38 +18,11 @@
   align-items: center;
   justify-content: space-between;
 }
-.site-brand {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  min-width: 175px;
-  min-height: 32px;
-  text-decoration: none;
-}
 .site-title {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
   color: #6f6f6f;
-  transition: opacity 0.25s ease;
-}
-.asknoema-logo {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: auto;
-  height: 16px;
-  max-width: 80px;
-  object-fit: contain;
-  opacity: 0;
-  transform: translateY(-50%);
-  transition: opacity 0.25s ease;
-}
-.site-header.visible .site-title {
-  opacity: 0;
-}
-.site-header.visible .asknoema-logo {
-  opacity: 1;
 }
 .menu-toggle {
   background: none;
