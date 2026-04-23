@@ -36,11 +36,13 @@
 .asknoema-logo {
   position: absolute;
   left: 0;
+  top: 50%;
   width: auto;
   height: 16px;
   max-width: 80px;
   object-fit: contain;
   opacity: 0;
+  transform: translateY(-50%);
   transition: opacity 0.25s ease;
 }
 .site-header.visible .site-title {
@@ -108,25 +110,6 @@ body.menu-open .icon-close {
 /* ================= DESKTOP ================= */
 
 @media (min-width: 768px) {
-  .site-brand {
-    gap: 14px;
-    min-width: 0;
-    min-height: 32px;
-  }
-
-  .site-title,
-  .site-header.visible .site-title,
-  .asknoema-logo,
-  .site-header.visible .asknoema-logo {
-    opacity: 1;
-    transition: none;
-  }
-
-  .asknoema-logo {
-    position: static;
-    max-width: 74px;
-  }
-
   .menu-toggle {
     display: none;
   }
