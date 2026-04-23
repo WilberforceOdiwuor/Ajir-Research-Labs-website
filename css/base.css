@@ -22,6 +22,20 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
 body.menu-open {
   overflow: hidden;
-},
+}
