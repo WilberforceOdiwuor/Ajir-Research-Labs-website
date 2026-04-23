@@ -9,13 +9,16 @@ function initHeaderAndMenu() {
 
   if (!header || !toggle || !nav) return;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 250) {
+  function updateHeaderBrand() {
+    if (window.scrollY > 8) {
       header.classList.add('visible');
     } else {
       header.classList.remove('visible');
     }
-  });
+  }
+
+  updateHeaderBrand();
+  window.addEventListener('scroll', updateHeaderBrand);
 
   function closeMenu() {
     nav.classList.remove('open');

@@ -18,11 +18,36 @@
   align-items: center;
   justify-content: space-between;
 }
+.site-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-width: 175px;
+  min-height: 32px;
+  text-decoration: none;
+}
 .site-title {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
   color: #6f6f6f;
+  transition: opacity 0.25s ease;
+}
+.asknoema-logo {
+  position: absolute;
+  left: 0;
+  width: auto;
+  height: 16px;
+  max-width: 80px;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.site-header.visible .site-title {
+  opacity: 0;
+}
+.site-header.visible .asknoema-logo {
+  opacity: 1;
 }
 .menu-toggle {
   background: none;
@@ -83,6 +108,25 @@ body.menu-open .icon-close {
 /* ================= DESKTOP ================= */
 
 @media (min-width: 768px) {
+  .site-brand {
+    gap: 14px;
+    min-width: 0;
+    min-height: 32px;
+  }
+
+  .site-title,
+  .site-header.visible .site-title,
+  .asknoema-logo,
+  .site-header.visible .asknoema-logo {
+    opacity: 1;
+    transition: none;
+  }
+
+  .asknoema-logo {
+    position: static;
+    max-width: 74px;
+  }
+
   .menu-toggle {
     display: none;
   }
