@@ -6,6 +6,11 @@ ROOT = Path(__file__).resolve().parent.parent
 PAGES = [
     ROOT / 'index.html',
     ROOT / 'contact.html',
+    ROOT / 'product.html',
+    ROOT / 'use-cases.html',
+    ROOT / 'technology.html',
+    ROOT / 'careers.html',
+    ROOT / 'faq.html',
     ROOT / 'team.html',
     ROOT / 'Research' / 'index.html',
     ROOT / 'Research' / 'algorithmic-abdication.html',
