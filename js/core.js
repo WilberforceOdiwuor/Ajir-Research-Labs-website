@@ -37,4 +37,19 @@ function initHeaderAndMenu() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', initHeaderAndMenu);
+function initHeaderScrollState() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  function syncHeaderScrollState() {
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+
+  syncHeaderScrollState();
+  window.addEventListener('scroll', syncHeaderScrollState, { passive: true });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initHeaderAndMenu();
+  initHeaderScrollState();
+});
