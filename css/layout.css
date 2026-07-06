@@ -264,7 +264,8 @@ body.menu-open .icon-close {
   transform: translateY(-1px);
 }
 
-.footer-social-link img {
+.footer-social-link img,
+.footer-social-link svg {
   width: 14px;
   height: 14px;
   display: block;

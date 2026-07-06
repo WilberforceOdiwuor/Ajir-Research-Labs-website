@@ -273,13 +273,14 @@
   border-color: rgba(0, 0, 0, 0.22);
 }
 
-.content .profile-links .icon-link img {
+.content .profile-links .icon-link img,
+.content .profile-links .icon-link svg {
   width: 18px;
   height: 18px;
   display: block;
 }
 
-.content .profile-links .icon-link img.instagram-icon {
+.content .profile-links .icon-link svg.instagram-icon {
   width: 19px;
   height: 19px;
 }
