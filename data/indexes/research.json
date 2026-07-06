@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "title": "Human Dignity as the Highest Value: An Analytical Study of the Encyclical Magnifica Humanitas and Its Operationalization in the Ajir Legal Framework",
+      "summary": "A note on human dignity, the Encyclical Magnifica Humanitas, and how Ajir Research Labs translates those principles into its legal and AI disclosure framework.",
+      "type": "Note",
+      "date": "2026-03-28",
+      "path": "../Research/human-dignity.html"
+    },
+    {
       "title": "Algorithmic Abdication and Intellectual Atrophy in the Era of Generative AI",
       "summary": "A literature review on cognitive offloading, intellectual atrophy, and the governance strategies needed to preserve human agency in AI-assisted work.",
       "type": "Research",

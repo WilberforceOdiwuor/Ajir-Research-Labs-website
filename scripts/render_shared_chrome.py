@@ -17,6 +17,7 @@ PAGES = [
     ROOT / 'Research' / 'algorithmic-radicalization.html',
     ROOT / 'Research' / 'epistemic-passivity.html',
     ROOT / 'Research' / 'intellectual-abdication-effect-of-ai.html',
+    ROOT / 'Research' / 'human-dignity.html',
     ROOT / 'legals' / 'privacy.html',
     ROOT / 'legals' / 'terms.html',
     ROOT / 'legals' / 'AI-policy.html',
