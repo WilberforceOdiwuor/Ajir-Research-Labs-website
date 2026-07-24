@@ -42,7 +42,7 @@ function initHeaderScrollState() {
   if (!header) return;
 
   function syncHeaderScrollState() {
-    header.classList.toggle('is-scrolled', window.scrollY > 8);
+    header.classList.toggle('is-scrolled', window.scrollY > 120);
   }
 
   syncHeaderScrollState();

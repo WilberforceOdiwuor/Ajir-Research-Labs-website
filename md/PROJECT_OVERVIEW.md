@@ -6,7 +6,7 @@ This repository is a static website for **Ajir Research Labs**. It presents the 
 
 The site currently does four main things:
 
-1. Publishes a landing page for Ajir Research Labs and the early concept for **askNoema**.
+1. Publishes a landing page for Ajir Research Labs and the early concept for **AskNoema**.
 2. Publishes a research index backed by a local JSON file and renders research entries client-side.
 3. Publishes individual long-form research articles as static HTML pages.
 4. Publishes legal and policy pages for privacy, terms, and AI policy.
@@ -60,7 +60,7 @@ The site currently does four main things:
 `index.html` functions as the main public identity page for the lab. It:
 
 - States the lab mission and philosophy.
-- Describes the `askNoema` concept and intended product direction.
+- Describes the `AskNoema` concept and intended product direction.
 - Explains design principles and operating ideas.
 - Lists current focus areas.
 - Provides a join/collaboration section.
@@ -196,7 +196,7 @@ The repository does not currently implement:
 - Analytics integration in code.
 - Form submission handling.
 - User accounts.
-- Product runtime for askNoema itself.
+- Product runtime for AskNoema itself.
 
 ## Operational Summary
 
@@ -208,4 +208,4 @@ At its current stage, this repository is a **static public web presence** for Aj
 - Basic client-side filtering of research content.
 - Legal and policy publishing.
 
-It does not yet contain the application runtime for askNoema, but it does describe that product direction and expose the lab's research/public-facing materials.
+It does not yet contain the application runtime for AskNoema, but it does describe that product direction and expose the lab's research/public-facing materials.

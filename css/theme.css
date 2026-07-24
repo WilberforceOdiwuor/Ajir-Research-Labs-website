@@ -1,0 +1,63 @@
+/* =========================================================
+   theme.css — color tokens + light/dark theming
+   Colours elsewhere reference these tokens; this file is the
+   single source of truth for the palette in both schemes.
+   ========================================================= */
+
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces */
+  --bg: #ffffff;              /* page background — pure white */
+  --surface: #ffffff;         /* cards, header, buttons, chips */
+  --surface-2: #f6f3ef;       /* secondary surface / gradient stop */
+
+  /* Text */
+  --text: #1f1f1f;            /* body copy */
+  --text-strong: #111111;     /* headings, emphasis, links */
+  --text-muted: #6f6f6f;      /* secondary text */
+  --text-faint: #8a8a8a;      /* meta / faint labels */
+
+  /* Lines & depth */
+  --border: rgba(0, 0, 0, 0.12);
+  --border-soft: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.24);
+  --shadow: rgba(0, 0, 0, 0.05);
+
+  /* Aliases consumed by legal.css */
+  --heading-color: var(--text-strong);
+  --muted-text: var(--text-muted);
+  --border-color: var(--border);
+  --link-color: var(--text-strong);
+
+  /* Monochrome icon tuning (0 = as-authored/black, 1 = inverted/white) */
+  --icon-invert: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --surface: #1a1c1f;
+    --surface-2: #202226;
+
+    --text: #e4e4e6;
+    --text-strong: #f5f5f7;
+    --text-muted: #a0a4a9;
+    --text-faint: #7f8489;
+
+    --border: rgba(255, 255, 255, 0.14);
+    --border-soft: rgba(255, 255, 255, 0.09);
+    --border-strong: rgba(255, 255, 255, 0.30);
+    --shadow: rgba(0, 0, 0, 0.55);
+
+    --icon-invert: 1;
+  }
+}
+
+/* Monochrome (black) SVG icons flip to light in dark mode.
+   Photographic thumbnails are <img> but not .svg, so they are untouched. */
+.menu-toggle .icon,
+.footer-social-link img,
+.profile-links .icon-link img {
+  filter: invert(var(--icon-invert));
+}

@@ -13,12 +13,11 @@
    ========================= */
 
 .content .heading {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: #6f6f6f;
+  color: var(--text-muted);
   text-align: center;
 }
 
@@ -29,7 +28,7 @@
 .content .tagline {
   font-size: 1.08rem;
   line-height: 1.6;
-  color: #6a6a6a;
+  color: var(--text-muted);
   text-align: center;
 }
 
@@ -39,16 +38,17 @@
 
 .content h2 {
   font-size: 1.25rem;
-  font-family: "inter","Newsreader", Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans);
   font-weight: 600;
   margin: 0 0 20px 0;
 }
 
 .content p {
+  font-family: var(--font-mono);
   font-size: 1.01rem;
   line-height: 1.65;
   margin: 0 0 22px 0;
-  color: #1f1f1f;
+  color: var(--text);
 }
 
 
@@ -75,7 +75,7 @@
 /* key philosophical phrase */
 .content .value-list .key {
   position: relative;
-  color: #000000;
+  color: var(--text-strong);
   font-weight: 600;
   /*display: inline-block;*/
 }
@@ -87,13 +87,13 @@
   bottom: 0px;        /* vertical offset from text */
   width: 95%;          /* makes it shorter than the text */
   height: 1px;         /* very thin line */
-  background: #000000;
+  background: var(--text-strong);
   opacity: 0.2;        /* softer SaaS feel */
 }
 
 /* explanatory continuation */
 .content .value-list .rest {
-  color: #6f6f6f;
+  color: var(--text-muted);
 }
 .content .connections {
   list-style: none;
@@ -102,12 +102,29 @@
 }
 
 .content li {
-  font-size: 1.04rem;
+  font-family: var(--font-mono);
+  font-size: 1.01rem;
   line-height: 1.6;
   margin-bottom: 12px;
-  color: #1f1f1f;
+  color: var(--text);
 }
 
+
+/* =========================
+   Smaller / non-heading text → JetBrains Mono
+   ========================= */
+.content .tagline,
+.content .eyebrow,
+.content .meta,
+.content .research-meta,
+.content .research-summary,
+.content .paper-byline,
+.content .profile-links .social-label,
+.content blockquote,
+.content .tag-bar button,
+.paper-references li {
+  font-family: var(--font-mono);
+}
 
 /* =========================
    Inline elements
@@ -118,7 +135,7 @@
 }
 
 .content a {
-  color: #6f6f6f;
+  color: var(--text-muted);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -146,10 +163,10 @@
   justify-content: center;
   min-height: 44px;
   padding: 0.8rem 1.15rem;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border);
   border-radius: 999px;
-  background: #ffffff;
-  color: #1f1f1f;
+  background: var(--surface);
+  color: var(--text);
   text-decoration: none;
   font-family: var(--font-sans);
   font-size: 0.95rem;
@@ -158,7 +175,7 @@
 
 .content .cta-button:hover {
   text-decoration: none;
-  border-color: rgba(0, 0, 0, 0.28);
+  border-color: var(--border-strong);
 }
 
 .content .contact-grid {
@@ -168,9 +185,9 @@
 
 .content .contact-card {
   padding: 22px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--surface);
 }
 
 .content .contact-card h3 {
@@ -210,7 +227,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6f6f6f;
+  color: var(--text-muted);
 }
 
 .content .profile-card {
@@ -218,10 +235,10 @@
   flex-direction: column;
   padding: 28px;
   min-height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border);
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 243, 239, 0.98) 100%);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  box-shadow: 0 18px 45px var(--shadow);
 }
 
 .content .profile-name {
@@ -230,7 +247,7 @@
 
 .content .profile-role {
   margin-bottom: 24px;
-  color: #6f6f6f;
+  color: var(--text-muted);
   font-weight: 600;
 }
 
@@ -246,7 +263,7 @@
   gap: 12px;
   margin-top: auto;
   padding-top: 18px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid var(--border-soft);
 }
 
 .content .profile-links a {
@@ -263,14 +280,14 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--surface);
 }
 
 .content .profile-links .icon-link:hover {
   text-decoration: none;
-  border-color: rgba(0, 0, 0, 0.22);
+  border-color: var(--border-strong);
 }
 
 .content .profile-links .icon-link img,
@@ -295,14 +312,14 @@
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6f6f6f;
+  color: var(--text-muted);
 }
 
 .content .paper-byline {
   margin-top: -18px;
   margin-bottom: 0;
   text-align: center;
-  color: #6f6f6f;
+  color: var(--text-muted);
   font-size: 0.95rem;
 }
 
@@ -375,7 +392,7 @@
 }
 
 .content .tag-bar button {
-  color: #6f6f6f;
+  color: var(--text-muted);
   background: none;
   border: none;
   font-size: 0.95rem;
@@ -383,7 +400,7 @@
 }
 
 .content .tag-bar button.active {
-  color: #000;
+  color: var(--text-strong);
   font-weight: 600;
 }
 
@@ -391,7 +408,7 @@
 .content .research-item {
   margin-bottom: 42px;
   padding-bottom: 28px;
-  border-bottom: 1px solid #6f6f6f;
+  border-bottom: 1px solid var(--text-muted);
 }
 
 /* --- Image square cover --- */
@@ -401,7 +418,7 @@
   object-fit: cover;       /* crop instead of stretch */
   border-radius: 18px;
   margin-bottom: 18px;
-  background: #111;        /* fallback while loading */
+  background: var(--text-strong);        /* fallback while loading */
 }
 
 /* --- Meta line --- */
@@ -437,13 +454,13 @@
 
 .content .research-item {
   padding: 2.25rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid var(--border);
 }
 
 /* Meta row (type + date) */
 .content .research-meta {
   font-size: 0.85rem;
-  color: #8a8a8a;
+  color: var(--text-faint);
   margin-bottom: 0.4rem;
   display: flex;
   gap: 0.75rem;
@@ -491,12 +508,12 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #666;
+  color: var(--text-muted);
   margin-bottom: 16px;
 }
 
 .content .paper-abstract p {
-  color: #222;
+  color: var(--text);
 }
 
 .content .introduction h2 {
@@ -535,8 +552,8 @@
 .content blockquote {
   margin: 32px 0;
   padding-left: 20px;
-  border-left: 2px solid #ddd;
-  color: #444;
+  border-left: 2px solid var(--border);
+  color: var(--text-muted);
   font-style: italic;
 }
 
@@ -545,7 +562,7 @@
 ----------------------------- */
 
 .content .citation {
-  color: #6f6f6f;              /* soft grey, not default blue */
+  color: var(--text-muted);              /* soft grey, not default blue */
   text-decoration: none;
   font-size: 0.7em;
   position: relative;
@@ -571,7 +588,7 @@
 
 /* hover interaction */
 .content .citation:hover {
-  color: #000000;              /* becomes epistemically “active” */
+  color: var(--text-strong);              /* becomes epistemically “active” */
   opacity: 1;
 }
 
@@ -586,7 +603,7 @@
 .paper-references {
   margin-top: 96px;
   padding-top: 48px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border);
 }
 
 .paper-references h2 {
@@ -601,7 +618,7 @@
 .paper-references li {
   font-size: 0.95rem;
   margin-bottom: 14px;
-  color: #333;
+  color: var(--text);
 }
 
 /* ----------------------------
@@ -609,7 +626,7 @@
 ----------------------------- */
 
 .content a {
-  color: #111;
+  color: var(--text-strong);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

@@ -69,7 +69,7 @@ a:hover {
 .site-footer {
   margin-top: 6rem;
   padding: 3.5rem 1.25rem 4rem;
-  background: #ffffff;
+  background: var(--surface);
 }
 
 .footer-inner {
@@ -79,7 +79,7 @@ a:hover {
 
 .footer-copy {
   font-size: 0.95rem;
-  color: #777777;
+  color: var(--text-muted);
   margin-bottom: 1.75rem;
 }
 
@@ -91,7 +91,7 @@ a:hover {
 
 .footer-links a {
   font-size: 0.95rem;
-  color: #777777;
+  color: var(--text-muted);
   text-decoration: none;
 }
 

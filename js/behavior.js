@@ -5,7 +5,15 @@
 ============================ */
 
 function formatDate(dateStr) {
-  const date = new Date(dateStr);
+  if (typeof dateStr !== "string") return dateStr;
+
+  // A plain "YYYY-MM-DD" string is parsed by `new Date()` as UTC midnight,
+  // which toLocaleDateString then shifts back a day for viewers behind UTC.
+  // Build a local date from the parts so the published day is stable everywhere.
+  const parts = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr.trim());
+  const date = parts
+    ? new Date(Number(parts[1]), Number(parts[2]) - 1, Number(parts[3]))
+    : new Date(dateStr);
 
   // Fallback protection
   if (isNaN(date)) return dateStr;
