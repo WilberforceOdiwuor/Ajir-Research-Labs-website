@@ -301,6 +301,14 @@ body.menu-open .icon-close {
   color: var(--text-muted);
 }
 
+/* Dormant footer link (e.g. Privacy notice while under review) */
+.footer-links .footer-link-disabled {
+  font-size: 0.95rem;
+  color: var(--text-faint);
+  cursor: default;
+  user-select: none;
+}
+
 /* Mobile tweaks */
 @media (max-width: 600px) {
   h1 {
