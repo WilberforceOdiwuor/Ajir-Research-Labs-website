@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self' https://zrtvvbnpmgyjebkhunes.supabase.co; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://zrtvvbnpmgyjebkhunes.supabase.co" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Newsreader:opsz,wght@6..72,400;600;700&display=swap" rel="stylesheet">
+  <title>Pre-release access — AskNoema</title>
+  <link rel="icon" type="image/png" href="./assets/icons/ajir.png">
+  <link rel="apple-touch-icon" href="./assets/icons/ajir.png">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Ask for pre-release access to AskNoema. One email address, and whether you want the Ajir Research newsletter." />
+  <link rel="canonical" href="https://ajirresearch.com/pre-release.html" />
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ajir Research Labs" />
+  <meta property="og:title" content="Pre-release access — AskNoema" />
+  <meta property="og:description" content="Ask for pre-release access to AskNoema. One email address, and whether you want the Ajir Research newsletter." />
+  <meta property="og:url" content="https://ajirresearch.com/pre-release.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Pre-release access — AskNoema" />
+  <meta name="twitter:description" content="Ask for pre-release access to AskNoema. One email address, and whether you want the Ajir Research newsletter." />
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/content.css">
+  <link rel="stylesheet" href="css/asknoema.css">
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+
+<!-- SHARED_HEADER_START -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="site-title">
+      <a class="site-title-link brand-lockup" href="./" aria-label="AjirResearch">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-dot"></span>
+          <span class="brand-dot"></span>
+          <span class="brand-dot"></span>
+        </span>
+        <span class="brand-connector" aria-hidden="true"></span>
+        <span class="brand-wordmark">AjirResearch</span>
+      </a>
+    </div>
+    <nav class="site-nav">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="site-nav-links"
+      >
+        <img src="./assets/icons/list-bold.svg" alt="" class="icon icon-menu">
+        <img src="./assets/icons/x-bold.svg" alt="" class="icon icon-close">
+      </button>
+
+      <ul class="nav-links" id="site-nav-links">
+        <li><a href="./">Home</a></li>
+        <li><a href="./Research/index.html">Research</a></li>
+        <li><a href="./team.html">Team</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- SHARED_HEADER_END -->
+
+<main class="asknoema an-gate">
+
+  <section class="an-hero">
+    <div class="an-wrap an-wrap--narrow">
+      <p class="an-eyebrow an-eyebrow--center">AskNoema</p>
+      <h1 class="an-title">Get pre-release access</h1>
+
+      <!-- form-action is 'none' in this page's CSP: the submit is fetch(),
+           never a navigation, so a hijacked action attribute has nowhere to go. -->
+      <form class="an-form" data-waitlist-form novalidate>
+        <div class="an-field">
+          <label class="an-field__label" for="wl-email">Email address</label>
+          <input
+            class="an-input"
+            id="wl-email"
+            name="email"
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            autocapitalize="off"
+            spellcheck="false"
+            maxlength="254"
+            required
+            placeholder="you@domain.com"
+          >
+        </div>
+
+        <!-- Hidden from people, irresistible to bots. A filled value is
+             accepted with a smile and dropped server-side. -->
+        <div class="an-hp" aria-hidden="true">
+          <label for="wl-company">Company</label>
+          <input id="wl-company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label class="an-check">
+          <input type="checkbox" name="newsletter" value="on">
+          <span class="an-check__box" aria-hidden="true"></span>
+          <span class="an-check__text">
+            Also send me the Ajir Research newsletter — research notes and release news.
+            <span class="an-check__aside">Unticked means access only. You can unsubscribe from either at any time.</span>
+          </span>
+        </label>
+
+        <button class="an-btn an-btn--solid an-btn--block" type="submit">Request access</button>
+
+        <p class="an-form__status" data-waitlist-status role="status" aria-live="polite"></p>
+
+        <p class="an-note">
+          We store only your email address for product launch and marketing purposes. Read the <a href="./legals/privacy.html">Privacy Notice</a>.
+        </p>
+      </form>
+
+      <div class="an-done" data-waitlist-done hidden>
+        <p class="an-done__mark" aria-hidden="true">&check;</p>
+        <h2 class="an-section-title" data-waitlist-done-focus>You are on the list</h2>
+        <p class="an-section-lede">
+          We have <strong data-waitlist-done-email></strong>.
+          <span data-waitlist-done-newsletter></span>
+        </p>
+        <div class="an-actions an-actions--center">
+          <a class="an-btn" href="./product.html">Back to AskNoema</a>
+          <a class="an-btn an-btn--ghost" href="./Research/overview.html">Read the research &rsaquo;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- SHARED_FOOTER_START -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <nav class="footer-group" aria-labelledby="footer-group-research">
+          <h2 class="footer-group-title" id="footer-group-research">Research</h2>
+          <ul class="footer-group-list">
+            <li><a href="./Research/index.html">Research Index</a></li>
+            <li><a href="./Research/overview.html">Research Overview</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <nav class="footer-group" aria-labelledby="footer-group-product">
+          <h2 class="footer-group-title" id="footer-group-product">Product</h2>
+          <ul class="footer-group-list">
+            <li><a href="./product.html">AskNoema</a></li>
+            <li><a href="./use-cases.html">Use cases</a></li>
+            <li><a href="./technology.html">Technology</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <nav class="footer-group" aria-labelledby="footer-group-company">
+          <h2 class="footer-group-title" id="footer-group-company">Company</h2>
+          <ul class="footer-group-list">
+            <li><span class="footer-link-disabled" aria-disabled="true">About Us</span></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><span class="footer-link-disabled" aria-disabled="true">News</span></li>
+            <li><a href="./team.html">Team</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <nav class="footer-group" aria-labelledby="footer-group-policies">
+          <h2 class="footer-group-title" id="footer-group-policies">Terms &amp; Policies</h2>
+          <ul class="footer-group-list">
+            <li><a href="./legals/terms.html">Terms of Service</a></li>
+            <li><a href="./legals/AI-policy.html">AskNoema AI Policy</a></li>
+            <li><a href="./legals/privacy.html">Privacy Notice</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-group" aria-labelledby="footer-group-more">
+          <h2 class="footer-group-title" id="footer-group-more">More</h2>
+          <ul class="footer-group-list">
+            <li><a href="./faq.html">FAQs</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <nav class="footer-socials" aria-label="Ajir Research Labs social links">
+        <a class="footer-social-link" href="https://x.com/ajir_research" target="_blank" rel="noopener noreferrer" aria-label="Ajir Research Labs on X">
+          <img src="./assets/icons/x.svg" alt="">
+        </a>
+
+        <a class="footer-social-link" href="https://www.linkedin.com/company/ajir-research-labs/" target="_blank" rel="noopener noreferrer" aria-label="Ajir Research Labs on LinkedIn">
+          <img src="./assets/icons/linkedin.svg" alt="">
+        </a>
+
+        <span class="footer-social-link footer-social-link-disabled" aria-label="Ajir Research Labs on Instagram link coming soon">
+          <svg class="instagram-logo-icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false">
+            <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+          </svg>
+        </span>
+
+        <span class="footer-social-link footer-social-link-disabled" aria-label="Ajir Research Labs on TikTok link coming soon">
+          <img src="./assets/icons/tiktok.svg" alt="">
+        </span>
+
+        <span class="footer-social-link footer-social-link-disabled" aria-label="Ajir Research Labs on YouTube link coming soon">
+          <img src="./assets/icons/youtube.svg" alt="">
+        </span>
+
+        <a class="footer-social-link" href="mailto:contact@ajirresearch.com" aria-label="Email Ajir Research Labs">
+          <img src="./assets/icons/mail.svg" alt="">
+        </a>
+      </nav>
+
+      <p class="footer-copy">
+        Ajir Research Labs &copy; 2026
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- SHARED_FOOTER_END -->
+
+<script src="js/core.js" defer></script>
+<script src="js/waitlist.js" defer></script>
+</body>
+</html>

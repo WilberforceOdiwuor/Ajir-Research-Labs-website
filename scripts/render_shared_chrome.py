@@ -7,6 +7,7 @@ PAGES = [
     ROOT / 'index.html',
     ROOT / 'contact.html',
     ROOT / 'product.html',
+    ROOT / 'pre-release.html',
     ROOT / 'use-cases.html',
     ROOT / 'technology.html',
     ROOT / 'careers.html',

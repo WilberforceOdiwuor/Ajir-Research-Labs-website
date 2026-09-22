@@ -1,0 +1,1264 @@
+/* =========================================================
+   asknoema.css — the AskNoema pages: the product page, the
+   pre-release gate, and the use-case map. Every rule sits
+   under .asknoema, which is a <main> class, so no other page
+   on the site is affected.
+   Type families come from base.css; neutral colours from
+   theme.css. The only new palette here is the pipeline's
+   node/bond accents, which are theme-aware and local.
+   ========================================================= */
+
+.asknoema {
+  position: relative;
+  overflow-x: clip;
+
+  /* Pipeline palette — light. Taken from the step artwork, then pushed toward
+     VS Code Light+ so the nodes assert themselves: the dull red becomes
+     crimson, the bonds become a clear jungle green. "Grey to white" cannot
+     work on a white page, so the two structural greys go the other way and
+     darken — the same move, which is to separate them from the ground. */
+  --an-intake: #4a4a52;
+  --an-whisper: #c4142e;
+  --an-gemini: #b07818;
+  --an-record: #4a4a52;
+  --an-claim: #2a5db0;
+  --an-sonar: #107c74;
+  --an-display: #0b0b0c;
+
+  --an-bond: #1b9b66;
+  --an-bond-strong: #0e7a4e;
+
+  /* Ink for the bonded capability glyphs. Follows the body-copy grey, so it
+     flips with the scheme on its own. */
+  --an-glyph: var(--text-muted);
+
+  /* Borderless cards, so the surface itself has to carry the edge. Light needs
+     less separation than dark to read as a distinct plane. */
+  --an-card: #f1f1f2;
+  --an-card-hover: #eaeaec;
+
+  /* ---- MOCKUP ZOOM — the knob ----------------------------------------
+     How large the hero and thread mockups render. 1 = the artwork's own
+     native size. Lower shows more of the interface at smaller type;
+     higher crops tighter and magnifies. These two numbers are the only
+     thing to change — widths, heights and offsets all follow them. */
+  /* The page gutter. .an-wrap is a 1040px border box holding 25px of padding,
+     so its text begins at 50vw - 495px; under a 1040px viewport that drops
+     below 25px and the floor takes over, which is the same 25px the wrap uses
+     there. One expression, every width, no breakpoint. Anything that bleeds
+     past the wrap re-finds the margin with this. */
+  --an-gutter: max(25px, calc(50vw - 495px));
+
+  /* ---- EDGE FADE — the second knob ------------------------------------
+     The mockups are slabs of interface wider than the window that shows
+     them, so the right-hand side is a cut. The dissolve hides that cut, and
+     it is built from two gradients multiplied together rather than a band on
+     each edge:
+
+       --an-fade-right   how far in from the right edge the dissolve reaches.
+                         It lands on exactly zero at the edge itself, at every
+                         height, so no row ever ends on a hard line.
+       --an-fade-angle   tilts a second gradient across the frame. 90deg is
+                         straight sideways; past that it leans, so the
+                         bottom-right goes first and the top-left stays whole.
+       --an-fade-start   how far along that tilt the dissolve begins.
+
+     Together they sweep in from the bottom-right corner and let go of each
+     quadrant in turn. The angle reads differently by shape — a wide desktop
+     frame takes the tilt more gently than a near-square phone one — which is
+     why it is a lean rather than a full 45 degrees. */
+  --an-fade-right: 40%;
+  --an-fade-angle: 120deg;
+  --an-fade-start: 30%;
+
+  --an-hero-zoom: 0.50;
+  --an-thread-zoom: 0.50;
+  --an-pipeline-zoom: 0.50;
+}
+
+/* ---- SMALL SCREENS — an optional second knob, currently OFF ----------------
+   The values above apply at every width. If the mockups ever read too small on
+   a phone, uncomment this and set your own numbers; higher magnifies, lower
+   fits more in. Left commented so the settings above stay the only ones in
+   effect.
+
+@media (max-width: 620px) {
+  .asknoema {
+    --an-hero-zoom: 1.10;
+    --an-thread-zoom: 1.00;
+  }
+}
+*/
+
+@media (prefers-color-scheme: dark) {
+  .asknoema {
+    /* Dark. VS Code Dark+ references: #569CD6 keyword blue, #4EC9B0 type teal,
+       a crimson error red, and the greys lifted to near-white as asked. */
+    --an-intake: #e8e8e6;
+    --an-whisper: #f14c4c;
+    --an-gemini: #dca94c;
+    --an-record: #e8e8e6;
+    --an-claim: #569cd6;
+    --an-sonar: #4ec9b0;
+    --an-display: #f5f5f3;
+
+    --an-bond: #2fbf87;
+    --an-bond-strong: #4fe3a5;
+
+    --an-card: #141518;
+    --an-card-hover: #1c1d21;
+  }
+}
+
+/* Shared inner rail — matches header/footer at 1040px */
+.an-wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.asknoema section {
+  padding: clamp(4.5rem, 10vw, 7.5rem) 0;
+}
+
+.asknoema .an-hero {
+  padding-top: clamp(3rem, 7vw, 5rem);
+}
+
+.asknoema [hidden] {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------
+   Type
+   --------------------------------------------------------- */
+
+.an-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin: 0 0 1.75rem;
+}
+
+.an-eyebrow--center { text-align: center; }
+
+.an-title {
+  font-family: var(--font-sans);
+  font-size: clamp(2.1rem, 5.6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  color: var(--text-strong);
+  text-align: center;
+  margin: 0 auto;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.an-lede {
+  font-family: var(--font-mono);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 1.75rem auto 0;
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.an-section-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--text-strong);
+  margin: 0;
+  max-width: 26ch;
+  text-wrap: balance;
+}
+
+.an-section-lede {
+  font-family: var(--font-mono);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 1.25rem 0 0;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* The one large claim — the positioning statement */
+.an-statement {
+  font-family: var(--font-sans);
+  font-size: clamp(1.35rem, 3.1vw, 2rem);
+  font-weight: 600;
+  line-height: 1.34;
+  letter-spacing: -0.015em;
+  color: var(--text-strong);
+  text-align: center;
+  margin: 0 auto;
+  max-width: 32ch;
+  text-wrap: balance;
+}
+
+.an-statement-sub {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 1.75rem auto 0;
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.an-rule-label {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* ---------------------------------------------------------
+   Buttons
+   --------------------------------------------------------- */
+
+.an-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.an-actions--center { justify-content: center; }
+
+.an-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-strong);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.an-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--surface);
+}
+
+.an-btn--solid {
+  background: var(--text-strong);
+  border-color: var(--text-strong);
+  color: var(--bg);
+}
+
+.an-btn--solid:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
+.an-btn--ghost {
+  background: none;
+  border-color: transparent;
+  padding-inline: 0.25rem;
+  color: var(--text-muted);
+}
+
+.an-btn--ghost:hover {
+  background: none;
+  border-color: transparent;
+  color: var(--text-strong);
+}
+
+.an-note {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-faint);
+  margin: 1.1rem 0 0;
+}
+
+.an-note--center { text-align: center; }
+
+/* ---------------------------------------------------------
+   Figures — no frame, no border. The mockup dissolves into
+   the page at its edges instead of sitting in a box.
+
+   The dissolve is two gradients — a right-edge fade and a
+   tilt — applied to two nested elements rather than composited
+   on one, so it works without mask-composite. Nesting is what
+   multiplies them, and the product is the diagonal sweep.
+   --------------------------------------------------------- */
+
+.an-figure {
+  display: block;
+  margin: 0;
+
+  -webkit-mask-image: linear-gradient(to right, #fff calc(100% - var(--an-fade-right)), rgba(255, 255, 255, 0) 100%);
+  mask-image: linear-gradient(to right, #fff calc(100% - var(--an-fade-right)), rgba(255, 255, 255, 0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+/* Also the crop window. These are desktop-width interfaces: fitted whole into
+   a text column they shrink until nothing in them can be read. So each is
+   rendered at very close to 1:1 and this window shows as much as fits,
+   trimming the right-hand side. In-shot type then lands at 80-90% of the grey
+   copy around it on every viewport, instead of scaling with the container. */
+.an-feather {
+  display: block;
+  overflow: hidden;
+
+  -webkit-mask-image: linear-gradient(var(--an-fade-angle), #fff var(--an-fade-start), rgba(255, 255, 255, 0) 100%);
+  mask-image: linear-gradient(var(--an-fade-angle), #fff var(--an-fade-start), rgba(255, 255, 255, 0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+/* A close-up wants more room than the 1040 text rail, so both break out of it.
+   .asknoema clips the x-overflow, so 100vw is safe next to a scrollbar. */
+.an-figure--hero,
+.an-figure--thread,
+.an-figure--pipeline {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100vw - 2rem), 1400px);
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+/* One window for both. */
+.an-figure--hero .an-feather,
+.an-figure--thread .an-feather { height: clamp(400px, 44vw, 660px); }
+
+/* The pipeline illustration is the one figure with no fixed window. It is a
+   diagram, not a screenshot: the response card runs from the top of the frame
+   down to three-quarters of its height, so any window short enough to match
+   the mockups would cut the source list off the bottom of it. Height follows
+   the artwork instead, and only the right-hand side is ever trimmed — which is
+   where the field of stage labels is, and it is meant to trail off. */
+.an-figure--pipeline .an-feather { height: auto; }
+
+.an-figure--pipeline picture,
+.an-figure--pipeline img {
+  display: block;
+  max-width: none;
+}
+
+/* Sized like the other two: the zoom setting, floored at the width of the
+   frame so it always covers. Artwork is 1600 x 1000. */
+.an-figure--pipeline img {
+  width: max(calc(1600px * var(--an-pipeline-zoom)), 100%);
+  height: auto;
+}
+
+/* `display` stays with the scheme classes below, which these would outrank. */
+.an-figure svg { max-width: none; }
+
+/* Both are sized the same way: render at the zoom setting, but never smaller
+   than the window. The two artworks have different native widths (1860 vs
+   1440), so at one shared zoom the narrower one would stop short and leave a
+   strip of empty frame on wide screens. The max() floor stretches it to cover
+   instead — 100% plus the left offset, since the artwork is nudged left and
+   would otherwise fall short on the right by exactly that much. Height follows
+   the viewBox ratio. */
+.an-figure--hero svg,
+.an-figure--thread svg {
+  height: auto;
+}
+
+/* Artwork is 1860 x 960. The negative margins nudge the slab's top-left corner
+   up to the window edge, and scale with the zoom so framing holds at any
+   setting. */
+.an-figure--hero svg {
+  width: max(calc(1860px * var(--an-hero-zoom)), calc(100% + 62.5px * var(--an-hero-zoom)));
+  margin: calc(-41px * var(--an-hero-zoom)) 0 0 calc(-62.5px * var(--an-hero-zoom));
+}
+
+/* Artwork is 1440 x 812. The conversation sits on the left, so it is the feed
+   column that gets trimmed as the window narrows. */
+.an-figure--thread svg {
+  width: max(calc(1440px * var(--an-thread-zoom)), calc(100% + 31.5px * var(--an-thread-zoom)));
+  margin: calc(-18.5px * var(--an-thread-zoom)) 0 0 calc(-31.5px * var(--an-thread-zoom));
+}
+
+.an-scheme-light { display: block; }
+.an-scheme-dark { display: none; }
+
+@media (prefers-color-scheme: dark) {
+  .an-scheme-light { display: none; }
+  .an-scheme-dark { display: block; }
+}
+
+/* Announced to screen readers, drawn for no one. */
+.an-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------
+   Value proposition
+   --------------------------------------------------------- */
+
+.an-value-head {
+  max-width: 72ch;
+}
+
+/* ---------------------------------------------------------
+   Features grid
+   --------------------------------------------------------- */
+
+/* A rail, not a grid: it scrolls sideways and bleeds to the viewport edge,
+   the same shape the research overview uses for its publication rails. */
+.an-features {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 460px);
+  gap: 0.5rem;
+  margin-top: clamp(2.75rem, 6vw, 4rem);
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  padding: 0.25rem 25px 1.5rem;
+  margin-inline: calc(50% - 50vw);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+
+  /* The rail bleeds to the viewport, so it has to re-find the page margin on
+     its own — the cards should start exactly where the heading above them
+     does. */
+  padding-inline: var(--an-gutter);
+
+  /* And the snapport has to be inset to match. A snap container's snapport is
+     its padding box, so with padding alone the first card's start edge rests a
+     gutter inside it — and the initial snap scrolls the rail by exactly that
+     much to close the gap, swallowing the inset and pinning card one to the
+     screen edge. Insetting the snapport puts the snap position back at
+     scroll 0, where the padding is still standing. */
+  scroll-padding-inline: var(--an-gutter);
+}
+
+.an-features::-webkit-scrollbar { height: 6px; }
+.an-features::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+.an-features:focus-visible {
+  outline: 2px solid var(--text-strong);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* One unbroken surface: no border, and no separate panel behind the glyph.
+   The tone lifts off black in dark mode and settles just under white in light,
+   with no warm cast either way. */
+.an-feature {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--an-card);
+  transition: background 0.25s ease;
+}
+
+.an-feature:hover { background: var(--an-card-hover); }
+
+/* Holds the mark and centres it. Deliberately transparent — the card behind
+   it is the only surface. */
+.an-feature__glyph {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+}
+
+.an-glyph {
+  width: min(140px, 45%);
+  height: auto;
+  color: var(--an-glyph);
+}
+
+.an-feature__body {
+  padding: 1.5rem 1.4rem 1.7rem;
+}
+
+.an-feature__kicker,
+.an-case__kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 0.7rem;
+}
+
+.an-feature__name,
+.an-case__name {
+  font-family: var(--font-sans);
+  font-size: 1.08rem;
+  font-weight: 650;
+  line-height: 1.32;
+  letter-spacing: -0.008em;
+  color: var(--text-strong);
+  margin: 0 0 0.8rem;
+}
+
+.an-feature__text,
+.an-case__text {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ---------------------------------------------------------
+   Workflow — the interactive pipeline
+   --------------------------------------------------------- */
+
+/* Same treatment as the capability cards: no border, 12px radius, and the
+   card tone that sits just off the page in either scheme. */
+.an-pipeline {
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  border: 0;
+  border-radius: 12px;
+  background: var(--an-card);
+  overflow: hidden;
+}
+
+.an-pipeline__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+}
+
+/* --- graph side --- */
+
+.an-graph {
+  position: relative;
+  padding: 1.25rem;
+}
+
+.an-graph__counter {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin: 0;
+}
+
+.an-graph__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: manipulation;
+}
+
+/* Camera: the whole scene zooms and pans toward the active node. */
+.an-scene {
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: 0 0;
+}
+
+/* Bonds */
+.an-bond {
+  fill: none;
+  stroke: var(--an-bond);
+  stroke-linecap: round;
+  transition: stroke 320ms ease, stroke-width 320ms ease, opacity 420ms ease;
+}
+
+/* Each bond ships its own opacity attribute, straight from the artwork, so
+   there is no blanket override here — only the lit and hinted states. */
+.an-pipeline.is-ready .an-bond.is-lit {
+  stroke: var(--an-bond-strong);
+  opacity: 1;
+}
+
+/* The bond that leads to the next unread stage draws itself, over and
+   over, so the eye is handed forward without a label telling it to go. */
+.an-pipeline.is-ready .an-bond.is-hint {
+  stroke: var(--an-bond-strong);
+  opacity: 1;
+  stroke-dasharray: 5 7;
+  animation: an-bond-travel 1.5s linear infinite;
+}
+
+@keyframes an-bond-travel {
+  to { stroke-dashoffset: -24; }
+}
+
+/* Nodes */
+.an-node {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity 420ms ease, filter 420ms ease;
+}
+
+.an-node__hit { fill: transparent; }
+
+/* The graph is dense enough that bonds run under labels. A halo in the
+   panel's own colour keeps the names readable where they cross. */
+.an-node__name,
+.an-node__layer {
+  font-family: var(--font-mono);
+  paint-order: stroke;
+  stroke: var(--an-card);
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
+}
+
+.an-node__name {
+  font-size: 7.5px;
+  fill: var(--text-muted);
+  transition: fill 320ms ease;
+}
+
+.an-node__layer {
+  font-size: 5px;
+  letter-spacing: 0.06em;
+  fill: var(--text-faint);
+}
+
+/* Halo — the pulse that marks "you are here" and "come here next". */
+.an-node__halo {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.an-pipeline.is-ready .an-node.is-active .an-node__halo {
+  opacity: 0.35;
+  animation: an-halo 2.4s ease-out infinite;
+}
+
+.an-pipeline.is-ready .an-node.is-next .an-node__halo {
+  opacity: 0.5;
+  animation: an-halo 1.6s ease-out infinite;
+}
+
+@keyframes an-halo {
+  0%   { transform: scale(0.72); opacity: 0.55; }
+  70%  { transform: scale(1.5);  opacity: 0; }
+  100% { transform: scale(1.5);  opacity: 0; }
+}
+
+/* Everything that is not the active stage steps back a little. */
+.an-pipeline.is-ready .an-node.is-dim {
+  opacity: 0.42;
+  filter: blur(1.1px);
+}
+
+.an-pipeline.is-ready .an-node.is-active .an-node__name {
+  fill: var(--text-strong);
+}
+
+.an-node:focus { outline: none; }
+
+.an-pipeline.is-ready .an-node:focus-visible .an-node__ring {
+  stroke: var(--text-strong);
+  stroke-width: 1;
+  opacity: 1;
+}
+
+.an-node__ring {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 1;
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+.an-pipeline.is-ready .an-node.is-active .an-node__ring { opacity: 0.5; }
+
+/* --- panel side --- */
+
+.an-panel {
+  padding: clamp(1.6rem, 3vw, 2.2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.an-stage {
+  animation: an-stage-in 420ms ease both;
+}
+
+.an-pipeline.is-ready .an-stage { display: none; }
+.an-pipeline.is-ready .an-stage.is-active { display: block; }
+
+/* Without JS every stage simply reads as a list, in order. */
+.an-pipeline:not(.is-ready) .an-stage + .an-stage {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+@keyframes an-stage-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.an-stage__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1.1rem;
+}
+
+.an-stage__chip {
+  display: inline-block;
+  padding: 0.28rem 0.6rem;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  line-height: 1.2;
+}
+
+.an-stage__tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.an-stage__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+  color: var(--text-strong);
+  margin: 0 0 1rem;
+}
+
+.an-stage__text {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0 0 1.6rem;
+  max-width: 46ch;
+}
+
+.an-stage__io {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border-soft);
+  margin: 0;
+}
+
+.an-stage__io dt {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 0.4rem;
+}
+
+.an-stage__io dd {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0;
+}
+
+/* --- controls --- */
+
+.an-pipeline__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 1.75rem;
+}
+
+.an-step {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.an-step:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  color: var(--text-strong);
+}
+
+.an-step:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.an-progress {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.an-progress span {
+  display: block;
+  cursor: pointer;
+  width: 14px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--border);
+  transition: background 260ms ease;
+}
+
+.an-progress span.is-on { background: var(--text-strong); }
+
+/* ---------------------------------------------------------
+   Closing
+   --------------------------------------------------------- */
+
+.an-closing {
+  border-radius: 16px;
+  background: var(--surface-grey);
+  padding: clamp(3.5rem, 9vw, 5.5rem) 1.5rem;
+  text-align: center;
+}
+
+.an-closing .an-section-title {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.an-closing .an-section-lede {
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 620px) {
+  .an-features { grid-auto-columns: minmax(280px, 86vw); gap: 0.5rem; }
+}
+
+@media (max-width: 860px) {
+  .an-pipeline__grid { grid-template-columns: 1fr; }
+  .an-node__name { font-size: 8.5px; }
+  .an-node__layer { font-size: 6px; }
+}
+
+@media (max-width: 620px) {
+  .an-stage__io { grid-template-columns: 1fr; gap: 0.9rem; }
+  .an-title { max-width: 16ch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .an-scene,
+  .an-btn,
+  .an-node,
+  .an-bond { transition: none; }
+
+  .an-pipeline.is-ready .an-node.is-active .an-node__halo,
+  .an-pipeline.is-ready .an-node.is-next .an-node__halo,
+  .an-pipeline.is-ready .an-bond.is-hint { animation: none; }
+
+  .an-pipeline.is-ready .an-node.is-next .an-node__halo { opacity: 0.5; }
+  .an-pipeline.is-ready .an-node.is-dim { filter: none; opacity: 0.5; }
+  .an-stage { animation: none; }
+}
+
+/* ---------------------------------------------------------
+   Pre-release sign-up screen
+   --------------------------------------------------------- */
+
+.an-wrap--narrow {
+  max-width: 560px;
+}
+
+.an-gate .an-hero {
+  padding-top: clamp(3.5rem, 9vw, 6rem);
+  padding-bottom: clamp(4rem, 10vw, 7rem);
+}
+
+.an-gate .an-title {
+  max-width: 14ch;
+}
+
+.an-form {
+  margin-top: clamp(2.5rem, 6vw, 3.25rem);
+  text-align: left;
+}
+
+.an-field {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.an-field__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.55rem;
+}
+
+.an-input {
+  display: block;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--text-strong);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.an-input::placeholder { color: var(--text-faint); }
+
+.an-input:hover { border-color: var(--border-strong); }
+
+.an-input:focus,
+.an-input:focus-visible {
+  outline: none;
+  border-color: var(--text-strong);
+  background: var(--surface);
+}
+
+/* Off-screen rather than display:none — a bot reading the DOM should still
+   find something worth filling in. */
+.an-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* The newsletter answer. Unticked by default: consent has to be given, not
+   withdrawn. */
+.an-check {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  margin: 1.5rem 0 1.75rem;
+  cursor: pointer;
+}
+
+.an-check input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.an-check__box {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  background: var(--surface-2);
+  position: relative;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.an-check__box::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0.6);
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.an-check:hover .an-check__box { border-color: var(--text-strong); }
+
+.an-check input:checked + .an-check__box {
+  background: var(--text-strong);
+  border-color: var(--text-strong);
+}
+
+.an-check input:checked + .an-check__box::after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+
+.an-check input:focus-visible + .an-check__box {
+  border-color: var(--text-strong);
+  box-shadow: 0 0 0 3px var(--border);
+}
+
+.an-check__text {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.an-check__aside {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--text-faint);
+  font-size: 0.8rem;
+}
+
+.an-btn--block {
+  width: 100%;
+  justify-content: center;
+  padding-block: 0.9rem;
+}
+
+.an-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.an-form__status {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  margin: 1rem 0 0;
+  min-height: 1.2em;
+  color: var(--text-muted);
+}
+
+.an-form__status[data-tone="error"] { color: var(--an-whisper); }
+.an-form__status[data-tone="ok"] { color: var(--an-sonar); }
+
+.an-form .an-note {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+/* base.css sets no colour on a bare <a>, so any link outside .content would
+   fall back to UA blue. The gate's fine print was the only such link until the
+   use-case map added one, so the rule loses its .an-form prefix and both get
+   it. Underlined, because in mono grey nothing else marks it as a link. */
+.an-note a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--border-strong);
+}
+
+.an-note a:hover {
+  color: var(--text-strong);
+  text-decoration-color: currentColor;
+}
+
+.an-note a:focus-visible {
+  outline: 2px solid var(--text-strong);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Success state */
+.an-done {
+  margin-top: clamp(2.5rem, 6vw, 3.25rem);
+  text-align: center;
+  animation: an-stage-in 420ms ease both;
+}
+
+.an-done__mark {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--an-sonar);
+  border-radius: 999px;
+  color: var(--an-sonar);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.an-done .an-section-title,
+.an-done .an-section-lede {
+  margin-inline: auto;
+  text-align: center;
+}
+
+[data-waitlist-done-focus]:focus { outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .an-input,
+  .an-check__box,
+  .an-check__box::after { transition: none; }
+  .an-done { animation: none; }
+}
+
+
+/* =========================================================
+   USE-CASE MAP — use-cases.html
+   ========================================================= */
+
+/* A grid, not a rail. On the product page the capability cards are an aside
+   to a page whose spine is the mockups, so they can scroll sideways. Here the
+   cards are the content, and content should not have to be dragged into view
+   to be found. Same surface, radius and hover as those cards, so the two
+   pages read as one product. */
+.an-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 0.5rem;
+  margin-top: clamp(2.75rem, 6vw, 4rem);
+}
+/* Four cards of running prose want two rows of two, not a row of three and an
+   orphan — auto-fit gives three at the rail's 990px inner width. Three-card
+   sections keep the default. */
+@media (min-width: 760px) {
+  .an-cases--pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.an-case {
+  border: 0;
+  border-radius: 12px;
+  background: var(--an-card);
+  padding: 1.6rem 1.4rem 1.75rem;
+  transition: background 0.25s ease;
+}
+
+.an-case:hover { background: var(--an-card-hover); }
+
+/* Standing alone rather than in the grid — one card the width of the rail. */
+.an-case--wide { margin-top: clamp(2.75rem, 6vw, 4rem); }
+
+/* The four session workflows. Numbered, because they are things you do in
+   order within a sitting, and the numeral is the only ornament on the page. */
+.an-flow {
+  list-style: none;
+  margin: clamp(2.75rem, 6vw, 4rem) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+  max-width: 70ch;
+}
+
+.an-flow > li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0 0.75rem;
+  /* The numeral sits on the title's baseline, not at the top of its box. */
+  align-items: baseline;
+}
+
+.an-flow__n {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  /* Sits on the first line of the title beside it, not above it. */
+  line-height: 1.7;
+}
+
+.an-flow__title {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.008em;
+  color: var(--text-strong);
+  margin: 0 0 0.55rem;
+}
+
+.an-flow__text {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* The worked example's three columns: what arrives, what runs, what comes
+   back. Three across on a desktop, stacking on its own. */
+.an-trace {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.6rem;
+  margin: 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.an-trace dt {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 0.5rem;
+}
+
+.an-trace dd {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 620px) {
+  /* The numeral column costs more than it gives on a phone. */
+  .an-flow > li { grid-template-columns: 1fr; gap: 0.3rem 0; }
+  .an-flow { gap: 1.75rem; }
+}
