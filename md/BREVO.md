@@ -11,7 +11,7 @@ In Brevo, open Contacts, then Lists, then the **Ajir Research Labs** folder:
 
 Contact attributes include `AJIR_SIGNED_UP_AT`, `AJIR_SOURCE`, `AJIR_STATUS`, and `AJIR_NEWSLETTER`. Use the newsletter list for newsletter campaigns. Brevo's campaign unsubscribe controls must remain enabled. Changing access status in Supabase syncs to Brevo; editing that attribute in Brevo does not change product access.
 
-Each new signup queues one subscriber confirmation and separate alerts for the configured staff recipients. Repeat form submissions update preferences without repeating welcome messages or alerts. Existing signups are imported with sync-only jobs.
+Each new signup queues one subscriber confirmation and separate alerts for the configured staff recipients. Repeat form submissions show an already-registered screen and leave the original request, preferences, and notification jobs unchanged. Email addresses are trimmed and lowercased before the database enforces uniqueness, including concurrent requests. Existing signups are imported with sync-only jobs.
 
 Notifications are normally processed within a minute. A daily summary is queued at **08:00 Africa/Nairobi**, covering the previous Nairobi calendar day, including zero-signup days. It reports signup totals, sources, and pending or failed integration jobs.
 

@@ -16,6 +16,7 @@ const WL_TIMEOUT_MS = 12000;
 const WL_EMAIL_SHAPE = /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/;
 
 const WL_MESSAGES = {
+  already_registered: "This email is already registered. To change your request or email preferences, contact contact@ajirresearch.com.",
   invalid_email: "That does not look like an email address. Check it and try again.",
   rate_limited: "That is a few tries in a short window. Give it a minute, then try again.",
   offline: "No connection reached us. Check your network and try again.",
@@ -86,9 +87,24 @@ function wlInit() {
   const doneEmail = document.querySelector("[data-waitlist-done-email]");
   const doneNewsletter = document.querySelector("[data-waitlist-done-newsletter]");
 
+  const duplicate = document.querySelector("[data-waitlist-duplicate]");
+  const duplicateEmail = document.querySelector("[data-waitlist-duplicate-email]");
+  const useAnotherEmail = document.querySelector("[data-waitlist-use-another]");
+
   if (!emailField || !submitButton) return;
 
   let inFlight = false;
+
+  if (useAnotherEmail) {
+    useAnotherEmail.addEventListener("click", () => {
+      if (duplicate) duplicate.hidden = true;
+      form.hidden = false;
+      emailField.value = "";
+      if (newsletterField) newsletterField.checked = false;
+      wlSetStatus(status, "", "");
+      emailField.focus();
+    });
+  }
 
   form.addEventListener("submit", async event => {
     event.preventDefault();
@@ -119,6 +135,23 @@ function wlInit() {
     inFlight = false;
     submitButton.disabled = false;
     submitButton.textContent = restoreLabel;
+
+    if (result.error === "already_registered") {
+      if (duplicateEmail) duplicateEmail.textContent = email;
+      if (duplicate) {
+        form.hidden = true;
+        if (done) done.hidden = true;
+        duplicate.hidden = false;
+        const heading = duplicate.querySelector("[data-waitlist-duplicate-focus]");
+        if (heading) {
+          heading.setAttribute("tabindex", "-1");
+          heading.focus();
+        }
+      } else {
+        wlSetStatus(status, WL_MESSAGES.already_registered, "error");
+      }
+      return;
+    }
 
     if (result.ok) {
       if (doneEmail) doneEmail.textContent = email;

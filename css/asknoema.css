@@ -1138,7 +1138,8 @@
   text-align: center;
 }
 
-[data-waitlist-done-focus]:focus { outline: none; }
+[data-waitlist-done-focus]:focus,
+[data-waitlist-duplicate-focus]:focus { outline: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .an-input,
