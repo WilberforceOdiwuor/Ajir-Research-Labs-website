@@ -1,3 +1,9 @@
 .local-docs/
 __pycache__/
 *.pyc
+
+# Integration credentials belong in Supabase secrets, never in Git.
+.env
+.env.*
+!.env.example
+supabase/.temp/
